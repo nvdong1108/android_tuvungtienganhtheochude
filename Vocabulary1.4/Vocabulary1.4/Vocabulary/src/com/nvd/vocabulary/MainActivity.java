@@ -67,7 +67,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		//
 		 SharedPreferences pre = getSharedPreferences("sttdata", MODE_PRIVATE);
 		 sttdata = pre.getBoolean("sttdata", true);
-		 if (sttdata)// lần mở qpps đầu tiên 
+		 if (true)// lần mở qpps đầu tiên 
 		 {
 			 doCreateDb();
 			 doDeleteDb();

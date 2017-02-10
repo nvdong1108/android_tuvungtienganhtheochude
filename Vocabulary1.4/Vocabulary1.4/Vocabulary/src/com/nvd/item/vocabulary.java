@@ -1,68 +1,70 @@
 package com.nvd.item;
 
 public class vocabulary {
-	private String WordEnglish;
-	private String WordVietNam;
-	private int Audio;
-	private int icon_audio ;
-	private int icon_yeuthich_true;
-	private int icon_yeuthich_false;
-	private int YEUTHICH ; 
-	public vocabulary(String wordEnglish, String wordVietNam, int audio , int yeuthich) {
+	private int id;
+	private String eng;
+	private String vn;
+	private String phatam;
+	private int yeuthich;
+	private int hinhanh;
+
+	public vocabulary(int id, String eng, String vn, String phatam,
+			int yeuthich, int hinhanh) {
 		super();
-		WordEnglish = wordEnglish;
-		WordVietNam = wordVietNam;
-		Audio = audio;
-		YEUTHICH = yeuthich;
+		this.id = id;
+		this.eng = eng;
+		this.vn = vn;
+		this.phatam = phatam;
+		this.yeuthich = yeuthich;
+		this.hinhanh = hinhanh;
 	}
-	public vocabulary() {
-		super();
-		// TODO Auto-generated constructor stub
+
+	public int getId() {
+		return id;
 	}
-	
-	
-	public int getYEUTHICH() {
-		return YEUTHICH;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public void setYEUTHICH(int yEUTHICH) {
-		YEUTHICH = yEUTHICH;
+
+	public String getEng() {
+		return eng;
 	}
-	public String getWordEnglish() {
-		return WordEnglish;
+
+	public void setEng(String eng) {
+		this.eng = eng;
 	}
-	public void setWordEnglish(String wordEnglish) {
-		WordEnglish = wordEnglish;
+
+	public String getVn() {
+		return vn;
 	}
-	public String getWordVietNam() {
-		return WordVietNam;
+
+	public void setVn(String vn) {
+		this.vn = vn;
 	}
-	public void setWordVietNam(String wordVietNam) {
-		WordVietNam = wordVietNam;
+
+	public String getPhatam() {
+		return phatam;
 	}
-	public int getAudio() {
-		return Audio;
+
+	public void setPhatam(String phatam) {
+		this.phatam = phatam;
 	}
-	public void setAudio(int audio) {
-		Audio = audio;
+
+	public int getYeuthich() {
+		return yeuthich;
 	}
-	public int getIcon_audio() {
-		return icon_audio;
+
+	public void setYeuthich(int yeuthich) {
+		this.yeuthich = yeuthich;
 	}
-	public void setIcon_audio(int icon_audio) {
-		this.icon_audio = icon_audio;
+
+	public int getHinhanh() {
+		return hinhanh;
 	}
-	public int getIcon_yeuthich_true() {
-		return icon_yeuthich_true;
+
+	public void setHinhanh(int hinhanh) {
+		this.hinhanh = hinhanh;
 	}
-	public void setIcon_yeuthich_true(int icon_yeuthich_true) {
-		this.icon_yeuthich_true = icon_yeuthich_true;
-	}
-	public int getIcon_yeuthich_false() {
-		return icon_yeuthich_false;
-	}
-	public void setIcon_yeuthich_false(int icon_yeuthich_false) {
-		this.icon_yeuthich_false = icon_yeuthich_false;
-	}
-	
 
 }

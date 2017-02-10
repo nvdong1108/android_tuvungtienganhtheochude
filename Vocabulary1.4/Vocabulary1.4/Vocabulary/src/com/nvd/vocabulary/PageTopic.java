@@ -59,50 +59,52 @@ public class PageTopic extends Activity {
 	private void AnhXa() {
 		lv_vocabulary = (ListView) findViewById(R.id.lv_vocabulary);
 	}
+
 	private ArrayList<vocabulary> getListVocabulary(int position) {
 		ArrayList<vocabulary> list = new ArrayList<vocabulary>();
 		Cursor c = null;
-		
-			switch (position) {
-			case 0:
-				// c = db.getData("SELECT * FROM tuvung");
-				c = database
-						.query("tuvung", null, "CHUDE ='FAMILY'", null, null, null, null);
-				break;
-			case 1:
-				// c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='JOB'");
-				c = database.query("tuvung", null, "CHUDE ='JOB'", null, null,
-						null, null);
-				break;
-			case 2:
-				// c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='SPORT'");
-				c = database.query("tuvung", null, "CHUDE ='SPORT'", null,
-						null, null, null);
-				break;
-			case 3:
-				// c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='FRUITS'");
-				c = database.query("tuvung", null, "CHUDE ='FRUITS'", null,
-						null, null, null);
-				break;
-			case 4:
-				// c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='ANIMAL'");
-				c = database.query("tuvung", null, "CHUDE ='ANIMAL'", null,
-						null, null, null);
-				break;
-			case 5:
-				// c = db.getData("SELECT * FROM tuvung WHERE YEUTHICH =1");
-				c = database.query("tuvung", null, "YEUTHICH =1", null, null,
-						null, null);
-				break;
-			default:
-				break;
-			}
-			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getString(1), c.getString(2), c
-						.getInt(3), c.getInt(4)));
-			}
-			c.close();
-		
+
+		switch (position) {
+		// case 0:
+		// // c = db.getData("SELECT * FROM tuvung");
+		// c = database
+		// .query("tuvung", null, "CHUDE ='FAMILY'", null, null, null, null);
+		// break;
+		// case 1:
+		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='JOB'");
+		// c = database.query("tuvung", null, "CHUDE ='JOB'", null, null,
+		// null, null);
+		// break;
+		// case 2:
+		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='SPORT'");
+		// c = database.query("tuvung", null, "CHUDE ='SPORT'", null,
+		// null, null, null);
+		// break;
+		// case 3:
+		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='FRUITS'");
+		// c = database.query("tuvung", null, "CHUDE ='FRUITS'", null,
+		// null, null, null);
+		// break;
+		// case 4:
+		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='ANIMAL'");
+		// c = database.query("tuvung", null, "CHUDE ='ANIMAL'", null,
+		// null, null, null);
+		// break;
+		// case 5:
+		// // c = db.getData("SELECT * FROM tuvung WHERE YEUTHICH =1");
+		// c = database.query("tuvung", null, "YEUTHICH =1", null, null,
+		// null, null);
+		// break;
+		default:
+			c = database.query("job", null, null, null, null, null, null);
+			break;
+		}
+		while (c.moveToNext()) {
+			list.add(new vocabulary(c.getInt(0), c.getString(1),
+					c.getString(2), c.getString(3), c.getInt(4), 0));
+		}
+		c.close();
+
 		return list;
 	}
 
