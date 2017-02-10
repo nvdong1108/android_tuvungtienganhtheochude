@@ -101,7 +101,7 @@ public class PageTopic extends Activity {
 		}
 		while (c.moveToNext()) {
 			list.add(new vocabulary(c.getInt(0), c.getString(1),
-					c.getString(2), c.getString(3), c.getInt(4), 0));
+					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5)));
 		}
 		c.close();
 

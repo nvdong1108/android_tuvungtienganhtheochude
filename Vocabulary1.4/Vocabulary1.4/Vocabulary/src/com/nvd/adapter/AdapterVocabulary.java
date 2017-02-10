@@ -33,6 +33,8 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 		this.data = objects;
 	}
 
+	private ImageView hinhanh;
+
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -50,6 +52,7 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 		TextView txtWordEnglish = (TextView) view.findViewById(R.id.txt_tvEng);
 		TextView txtWordVietNam = (TextView) view.findViewById(R.id.txt_tvVN);
 		ImageView icon_music = (ImageView) view.findViewById(R.id.ic_speakers);
+		hinhanh = (ImageView) view.findViewById(R.id.img_tv);
 
 		final ImageView icon_yeuthich_true = (ImageView) view
 				.findViewById(R.id.ic_yeuthich_true);
@@ -58,8 +61,9 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 		//
 		txtWordVietNam.setTypeface(facev); //
 		txtWordVietNam.setTypeface(facee); //
-		MediaPlayer media = new MediaPlayer();
-
+		//
+		
+		hinhanh.setImageResource(v.getHinhanh());
 		txtWordEnglish.setText(v.getEng());
 		txtWordVietNam.setText(v.getVn());
 
