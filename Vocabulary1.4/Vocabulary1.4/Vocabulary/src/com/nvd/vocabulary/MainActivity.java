@@ -61,12 +61,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				.addTestDevice("CC5F2C72DF2B356BBF0DA198").build();
 		adView.loadAd(adRequest);
 		interstitial.loadAd(adRequest);
-		AnhXa();
-		KhaiBao();
+
 		//
 		SharedPreferences pre = getSharedPreferences("sttdata", MODE_PRIVATE);
 		sttdata = pre.getBoolean("sttdata", true);
-		if (sttdata)// lần mở qpps đầu tiên
+		if (true)// lần mở qpps đầu tiên
 		{
 			doCreateDb();
 			doDeleteDb();
@@ -74,21 +73,15 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			edit.putBoolean("sttdata", false);
 			edit.commit();
 		}
-
 		try {
 			copydatabase();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		// try {
-		// db.copydatabase();
 		//
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+		AnhXa();
+		KhaiBao();
 		//
 		adapter = new AdapterTopic(this, R.layout.item_topic, arrTopic);
 		lv_topic.setAdapter(adapter);

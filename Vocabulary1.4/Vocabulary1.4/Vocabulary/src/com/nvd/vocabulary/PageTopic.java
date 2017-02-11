@@ -65,11 +65,10 @@ public class PageTopic extends Activity {
 		Cursor c = null;
 
 		switch (position) {
-		// case 0:
-		// // c = db.getData("SELECT * FROM tuvung");
-		// c = database
-		// .query("tuvung", null, "CHUDE ='FAMILY'", null, null, null, null);
-		// break;
+		case 0:
+
+			c = database.query("family", null, null, null, null, null, null);
+			break;
 		// case 1:
 		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='JOB'");
 		// c = database.query("tuvung", null, "CHUDE ='JOB'", null, null,
@@ -95,7 +94,7 @@ public class PageTopic extends Activity {
 		// c = database.query("tuvung", null, "YEUTHICH =1", null, null,
 		// null, null);
 		// break;
-		default:
+		default: 
 			c = database.query("job", null, null, null, null, null, null);
 			break;
 		}

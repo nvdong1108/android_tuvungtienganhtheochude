@@ -164,20 +164,20 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f010010;
     }
     public static final class color {
-        public static final int common_action_bar_splitter=0x7f040009;
+        public static final int common_action_bar_splitter=0x7f050009;
         /**  Sign-in Button Colors 
          */
-        public static final int common_signin_btn_dark_text_default=0x7f040000;
-        public static final int common_signin_btn_dark_text_disabled=0x7f040002;
-        public static final int common_signin_btn_dark_text_focused=0x7f040003;
-        public static final int common_signin_btn_dark_text_pressed=0x7f040001;
-        public static final int common_signin_btn_default_background=0x7f040008;
-        public static final int common_signin_btn_light_text_default=0x7f040004;
-        public static final int common_signin_btn_light_text_disabled=0x7f040006;
-        public static final int common_signin_btn_light_text_focused=0x7f040007;
-        public static final int common_signin_btn_light_text_pressed=0x7f040005;
-        public static final int common_signin_btn_text_dark=0x7f04000a;
-        public static final int common_signin_btn_text_light=0x7f04000b;
+        public static final int common_signin_btn_dark_text_default=0x7f050000;
+        public static final int common_signin_btn_dark_text_disabled=0x7f050002;
+        public static final int common_signin_btn_dark_text_focused=0x7f050003;
+        public static final int common_signin_btn_dark_text_pressed=0x7f050001;
+        public static final int common_signin_btn_default_background=0x7f050008;
+        public static final int common_signin_btn_light_text_default=0x7f050004;
+        public static final int common_signin_btn_light_text_disabled=0x7f050006;
+        public static final int common_signin_btn_light_text_focused=0x7f050007;
+        public static final int common_signin_btn_light_text_pressed=0x7f050005;
+        public static final int common_signin_btn_text_dark=0x7f05000a;
+        public static final int common_signin_btn_text_light=0x7f05000b;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -187,87 +187,156 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f070000;
-        public static final int activity_vertical_margin=0x7f070001;
+        public static final int activity_horizontal_margin=0x7f080000;
+        public static final int activity_vertical_margin=0x7f080001;
     }
     public static final class drawable {
         public static final int accountant=0x7f020000;
-        public static final int baker=0x7f020001;
-        public static final int barber=0x7f020002;
-        public static final int barman=0x7f020003;
-        public static final int builder=0x7f020004;
-        public static final int butcher=0x7f020005;
-        public static final int carpenter=0x7f020006;
-        public static final int cashier=0x7f020007;
-        public static final int chambermaid=0x7f020008;
-        public static final int common_signin_btn_icon_dark=0x7f020009;
-        public static final int common_signin_btn_icon_disabled_dark=0x7f02000a;
-        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f02000b;
-        public static final int common_signin_btn_icon_disabled_focus_light=0x7f02000c;
-        public static final int common_signin_btn_icon_disabled_light=0x7f02000d;
-        public static final int common_signin_btn_icon_focus_dark=0x7f02000e;
-        public static final int common_signin_btn_icon_focus_light=0x7f02000f;
-        public static final int common_signin_btn_icon_light=0x7f020010;
-        public static final int common_signin_btn_icon_normal_dark=0x7f020011;
-        public static final int common_signin_btn_icon_normal_light=0x7f020012;
-        public static final int common_signin_btn_icon_pressed_dark=0x7f020013;
-        public static final int common_signin_btn_icon_pressed_light=0x7f020014;
-        public static final int common_signin_btn_text_dark=0x7f020015;
-        public static final int common_signin_btn_text_disabled_dark=0x7f020016;
-        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020017;
-        public static final int common_signin_btn_text_disabled_focus_light=0x7f020018;
-        public static final int common_signin_btn_text_disabled_light=0x7f020019;
-        public static final int common_signin_btn_text_focus_dark=0x7f02001a;
-        public static final int common_signin_btn_text_focus_light=0x7f02001b;
-        public static final int common_signin_btn_text_light=0x7f02001c;
-        public static final int common_signin_btn_text_normal_dark=0x7f02001d;
-        public static final int common_signin_btn_text_normal_light=0x7f02001e;
-        public static final int common_signin_btn_text_pressed_dark=0x7f02001f;
-        public static final int common_signin_btn_text_pressed_light=0x7f020020;
-        public static final int header=0x7f020021;
-        public static final int ic_launcher=0x7f020022;
-        public static final int ic_plusone_medium_off_client=0x7f020023;
-        public static final int ic_plusone_small_off_client=0x7f020024;
-        public static final int ic_plusone_standard_off_client=0x7f020025;
-        public static final int ic_plusone_tall_off_client=0x7f020026;
-        public static final int icon_animals42=0x7f020027;
-        public static final int icon_family32=0x7f020028;
-        public static final int icon_fruit48=0x7f020029;
-        public static final int icon_mic32=0x7f02002a;
-        public static final int icon_sport32=0x7f02002b;
-        public static final int icon_star32_true=0x7f02002c;
-        public static final int icon_star48=0x7f02002d;
-        public static final int icon_start32_false=0x7f02002e;
-        public static final int icon_work32=0x7f02002f;
-        public static final int icongame16=0x7f020030;
-        public static final int volue32=0x7f020031;
+        public static final int adopted_child=0x7f020001;
+        public static final int ancestor=0x7f020002;
+        public static final int aunt=0x7f020003;
+        public static final int baker=0x7f020004;
+        public static final int barber=0x7f020005;
+        public static final int barman=0x7f020006;
+        public static final int brother=0x7f020007;
+        public static final int brother_in_law=0x7f020008;
+        public static final int builder=0x7f020009;
+        public static final int butcher=0x7f02000a;
+        public static final int carpenter=0x7f02000b;
+        public static final int cashier=0x7f02000c;
+        public static final int chambermaid=0x7f02000d;
+        public static final int chef=0x7f02000e;
+        public static final int cleaner=0x7f02000f;
+        public static final int common_signin_btn_icon_dark=0x7f020010;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f020011;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020012;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020013;
+        public static final int common_signin_btn_icon_disabled_light=0x7f020014;
+        public static final int common_signin_btn_icon_focus_dark=0x7f020015;
+        public static final int common_signin_btn_icon_focus_light=0x7f020016;
+        public static final int common_signin_btn_icon_light=0x7f020017;
+        public static final int common_signin_btn_icon_normal_dark=0x7f020018;
+        public static final int common_signin_btn_icon_normal_light=0x7f020019;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f02001a;
+        public static final int common_signin_btn_icon_pressed_light=0x7f02001b;
+        public static final int common_signin_btn_text_dark=0x7f02001c;
+        public static final int common_signin_btn_text_disabled_dark=0x7f02001d;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f02001e;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f02001f;
+        public static final int common_signin_btn_text_disabled_light=0x7f020020;
+        public static final int common_signin_btn_text_focus_dark=0x7f020021;
+        public static final int common_signin_btn_text_focus_light=0x7f020022;
+        public static final int common_signin_btn_text_light=0x7f020023;
+        public static final int common_signin_btn_text_normal_dark=0x7f020024;
+        public static final int common_signin_btn_text_normal_light=0x7f020025;
+        public static final int common_signin_btn_text_pressed_dark=0x7f020026;
+        public static final int common_signin_btn_text_pressed_light=0x7f020027;
+        public static final int cousin=0x7f020028;
+        public static final int daughter=0x7f020029;
+        public static final int dentist=0x7f02002a;
+        public static final int doctor=0x7f02002b;
+        public static final int electrician=0x7f02002c;
+        public static final int engineer=0x7f02002d;
+        public static final int family=0x7f02002e;
+        public static final int father=0x7f02002f;
+        public static final int father_in_law=0x7f020030;
+        public static final int fireman=0x7f020031;
+        public static final int fishmonger=0x7f020032;
+        public static final int flight_attendant=0x7f020033;
+        public static final int fosterling=0x7f020034;
+        public static final int godfather=0x7f020035;
+        public static final int granddaughter=0x7f020036;
+        public static final int grandfather=0x7f020037;
+        public static final int grandmother=0x7f020038;
+        public static final int grandparent=0x7f020039;
+        public static final int grandson=0x7f02003a;
+        public static final int great_aunt=0x7f02003b;
+        public static final int great_grandfather=0x7f02003c;
+        public static final int great_grandmother=0x7f02003d;
+        public static final int great_grandparent=0x7f02003e;
+        public static final int great_uncle=0x7f02003f;
+        public static final int hairdresser=0x7f020040;
+        public static final int half_brother=0x7f020041;
+        public static final int half_sister=0x7f020042;
+        public static final int header=0x7f020043;
+        public static final int ic_launcher=0x7f020044;
+        public static final int ic_plusone_medium_off_client=0x7f020045;
+        public static final int ic_plusone_small_off_client=0x7f020046;
+        public static final int ic_plusone_standard_off_client=0x7f020047;
+        public static final int ic_plusone_tall_off_client=0x7f020048;
+        public static final int icon_animals42=0x7f020049;
+        public static final int icon_family32=0x7f02004a;
+        public static final int icon_fruit48=0x7f02004b;
+        public static final int icon_mic32=0x7f02004c;
+        public static final int icon_sport32=0x7f02004d;
+        public static final int icon_star32_true=0x7f02004e;
+        public static final int icon_star48=0x7f02004f;
+        public static final int icon_start32_false=0x7f020050;
+        public static final int icon_work32=0x7f020051;
+        public static final int icongame16=0x7f020052;
+        public static final int judge=0x7f020053;
+        public static final int lawyer=0x7f020054;
+        public static final int mother=0x7f020055;
+        public static final int mother_in_law=0x7f020056;
+        public static final int nephew=0x7f020057;
+        public static final int niece=0x7f020058;
+        public static final int nurse=0x7f020059;
+        public static final int optician=0x7f02005a;
+        public static final int orphan=0x7f02005b;
+        public static final int painter=0x7f02005c;
+        public static final int parent=0x7f02005d;
+        public static final int photographer=0x7f02005e;
+        public static final int plumber=0x7f02005f;
+        public static final int policeman=0x7f020060;
+        public static final int porter=0x7f020061;
+        public static final int project=0x7f020062;
+        public static final int receptionist=0x7f020063;
+        public static final int reporter=0x7f020064;
+        public static final int sales_assistant=0x7f020065;
+        public static final int sales_representative=0x7f020066;
+        public static final int scientist=0x7f020067;
+        public static final int secretary=0x7f020068;
+        public static final int sister=0x7f020069;
+        public static final int sister_in_law=0x7f02006a;
+        public static final int son=0x7f02006b;
+        public static final int step_father=0x7f02006c;
+        public static final int step_mother=0x7f02006d;
+        public static final int surgeon=0x7f02006e;
+        public static final int tailor=0x7f02006f;
+        public static final int teacher=0x7f020070;
+        public static final int technician=0x7f020071;
+        public static final int uncle=0x7f020072;
+        public static final int vet=0x7f020073;
+        public static final int volue32=0x7f020074;
+        public static final int waiter=0x7f020075;
+        public static final int welder=0x7f020076;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0015;
-        public static final int adView=0x7f0a0005;
-        public static final int adView2=0x7f0a000b;
-        public static final int hybrid=0x7f0a0000;
-        public static final int ic_speakers=0x7f0a000f;
-        public static final int ic_yeuthich_false=0x7f0a0011;
-        public static final int ic_yeuthich_true=0x7f0a0010;
-        public static final int icon_topic=0x7f0a000c;
-        public static final int img_tv=0x7f0a000e;
-        public static final int lv_heder=0x7f0a0006;
-        public static final int lv_topic=0x7f0a0009;
-        public static final int lv_vocabulary=0x7f0a000a;
-        public static final int none=0x7f0a0001;
-        public static final int normal=0x7f0a0002;
-        public static final int satellite=0x7f0a0003;
-        public static final int terrain=0x7f0a0004;
-        public static final int txt_heder1=0x7f0a0007;
-        public static final int txt_heder2=0x7f0a0008;
-        public static final int txt_name_topic=0x7f0a000d;
-        public static final int txt_phatam=0x7f0a0013;
-        public static final int txt_tvEng=0x7f0a0012;
-        public static final int txt_tvVN=0x7f0a0014;
+        public static final int action_settings=0x7f0b0015;
+        public static final int adView=0x7f0b0005;
+        public static final int adView2=0x7f0b000b;
+        public static final int hybrid=0x7f0b0000;
+        public static final int ic_speakers=0x7f0b000f;
+        public static final int ic_yeuthich_false=0x7f0b0011;
+        public static final int ic_yeuthich_true=0x7f0b0010;
+        public static final int icon_topic=0x7f0b000c;
+        public static final int img_tv=0x7f0b000e;
+        public static final int lv_heder=0x7f0b0006;
+        public static final int lv_topic=0x7f0b0009;
+        public static final int lv_vocabulary=0x7f0b000a;
+        public static final int none=0x7f0b0001;
+        public static final int normal=0x7f0b0002;
+        public static final int satellite=0x7f0b0003;
+        public static final int terrain=0x7f0b0004;
+        public static final int txt_heder1=0x7f0b0007;
+        public static final int txt_heder2=0x7f0b0008;
+        public static final int txt_name_topic=0x7f0b000d;
+        public static final int txt_phatam=0x7f0b0013;
+        public static final int txt_tvEng=0x7f0b0012;
+        public static final int txt_tvVN=0x7f0b0014;
     }
     public static final class integer {
-        public static final int google_play_services_version=0x7f060000;
+        public static final int google_play_services_version=0x7f070000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -276,108 +345,248 @@ containing a value of this type.
         public static final int item_vocabulary=0x7f030003;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
-        public static final int page_topic=0x7f090001;
+        public static final int main=0x7f0a0000;
+        public static final int page_topic=0x7f0a0001;
+    }
+    public static final class raw {
+        public static final int accountant=0x7f040000;
+        public static final int actor=0x7f040001;
+        public static final int antelope=0x7f040002;
+        public static final int apple=0x7f040003;
+        public static final int apricot=0x7f040004;
+        public static final int archery=0x7f040005;
+        public static final int artist=0x7f040006;
+        public static final int athletics=0x7f040007;
+        public static final int aunt=0x7f040008;
+        public static final int avocado=0x7f040009;
+        public static final int baboon=0x7f04000a;
+        public static final int badminton=0x7f04000b;
+        public static final int baker=0x7f04000c;
+        public static final int banana=0x7f04000d;
+        public static final int baseball=0x7f04000e;
+        public static final int basketball=0x7f04000f;
+        public static final int bear=0x7f040010;
+        public static final int bee=0x7f040011;
+        public static final int boxing=0x7f040012;
+        public static final int brother=0x7f040013;
+        public static final int buffalo=0x7f040014;
+        public static final int builder=0x7f040015;
+        public static final int businessman=0x7f040016;
+        public static final int camel=0x7f040017;
+        public static final int carpenter=0x7f040018;
+        public static final int cashier=0x7f040019;
+        public static final int cat=0x7f04001a;
+        public static final int cheetah=0x7f04001b;
+        public static final int cherry=0x7f04001c;
+        public static final int chimpanzee=0x7f04001d;
+        public static final int coconut=0x7f04001e;
+        public static final int cook=0x7f04001f;
+        public static final int cow=0x7f040020;
+        public static final int cycling=0x7f040021;
+        public static final int dancer=0x7f040022;
+        public static final int daughter=0x7f040023;
+        public static final int deer=0x7f040024;
+        public static final int dentist=0x7f040025;
+        public static final int doctor=0x7f040026;
+        public static final int dog=0x7f040027;
+        public static final int donkey=0x7f040028;
+        public static final int dophin=0x7f040029;
+        public static final int duck=0x7f04002a;
+        public static final int durian=0x7f04002b;
+        public static final int elephant=0x7f04002c;
+        public static final int engineer=0x7f04002d;
+        public static final int eurythmics=0x7f04002e;
+        public static final int farmer=0x7f04002f;
+        public static final int father=0x7f040030;
+        public static final int fencing=0x7f040031;
+        public static final int fox=0x7f040032;
+        public static final int frog=0x7f040033;
+        public static final int gardener=0x7f040034;
+        public static final int gazelle=0x7f040035;
+        public static final int giraffe=0x7f040036;
+        public static final int gnu=0x7f040037;
+        public static final int goal=0x7f040038;
+        public static final int goat=0x7f040039;
+        public static final int gorilla=0x7f04003a;
+        public static final int grandfather=0x7f04003b;
+        public static final int grandmother=0x7f04003c;
+        public static final int grandparents=0x7f04003d;
+        public static final int grape=0x7f04003e;
+        public static final int guava=0x7f04003f;
+        public static final int gymnastics=0x7f040040;
+        public static final int hairdresser=0x7f040041;
+        public static final int hippo=0x7f040042;
+        public static final int hippopotamus=0x7f040043;
+        public static final int horse=0x7f040044;
+        public static final int horse_race=0x7f040045;
+        public static final int hurdle_rate=0x7f040046;
+        public static final int husband=0x7f040047;
+        public static final int hyena=0x7f040048;
+        public static final int jackfruit=0x7f040049;
+        public static final int javelin_throw=0x7f04004a;
+        public static final int kangaroo=0x7f04004b;
+        public static final int lawyer=0x7f04004c;
+        public static final int lemon=0x7f04004d;
+        public static final int leopard=0x7f04004e;
+        public static final int lion=0x7f04004f;
+        public static final int lioness=0x7f040050;
+        public static final int litchi=0x7f040051;
+        public static final int magician=0x7f040052;
+        public static final int manager=0x7f040053;
+        public static final int mango=0x7f040054;
+        public static final int mangosteen=0x7f040055;
+        public static final int marathon_race=0x7f040056;
+        public static final int melon=0x7f040057;
+        public static final int monkey=0x7f040058;
+        public static final int mother=0x7f040059;
+        public static final int musician=0x7f04005a;
+        public static final int nephew=0x7f04005b;
+        public static final int niece=0x7f04005c;
+        public static final int nurse=0x7f04005d;
+        public static final int orange=0x7f04005e;
+        public static final int ox=0x7f04005f;
+        public static final int painter=0x7f040060;
+        public static final int papaya=0x7f040061;
+        public static final int parent=0x7f040062;
+        public static final int peach=0x7f040063;
+        public static final int pear=0x7f040064;
+        public static final int penguin=0x7f040065;
+        public static final int pig=0x7f040066;
+        public static final int pineapple=0x7f040067;
+        public static final int plum=0x7f040068;
+        public static final int policeman=0x7f040069;
+        public static final int rambutan=0x7f04006a;
+        public static final int regatta=0x7f04006b;
+        public static final int reporter=0x7f04006c;
+        public static final int rhino=0x7f04006d;
+        public static final int rhinoceros=0x7f04006e;
+        public static final int rooster=0x7f04006f;
+        public static final int rugby=0x7f040070;
+        public static final int secretary=0x7f040071;
+        public static final int singer=0x7f040072;
+        public static final int sister=0x7f040073;
+        public static final int soccer=0x7f040074;
+        public static final int son=0x7f040075;
+        public static final int soursop=0x7f040076;
+        public static final int strawberry=0x7f040077;
+        public static final int swimming=0x7f040078;
+        public static final int table_tennis=0x7f040079;
+        public static final int tailor=0x7f04007a;
+        public static final int tamarind=0x7f04007b;
+        public static final int teacher=0x7f04007c;
+        public static final int tennis=0x7f04007d;
+        public static final int tiger=0x7f04007e;
+        public static final int uncle=0x7f04007f;
+        public static final int vet=0x7f040080;
+        public static final int volleyball=0x7f040081;
+        public static final int waiter=0x7f040082;
+        public static final int watermelon=0x7f040083;
+        public static final int weightliting=0x7f040084;
+        public static final int wife=0x7f040085;
+        public static final int windsurfing=0x7f040086;
+        public static final int wolf=0x7f040087;
+        public static final int wrestle=0x7f040088;
+        public static final int zebra=0x7f040089;
     }
     public static final class string {
-        public static final int action_settings=0x7f05001c;
-        public static final int app_name=0x7f05001a;
+        public static final int action_settings=0x7f06001c;
+        public static final int app_name=0x7f06001a;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
          */
-        public static final int auth_client_needs_enabling_title=0x7f050015;
+        public static final int auth_client_needs_enabling_title=0x7f060015;
         /**   Title for notification shown when GooglePlayServices needs to be
         installed for a application to work. [CHAR LIMIT=70] 
          */
-        public static final int auth_client_needs_installation_title=0x7f050016;
+        public static final int auth_client_needs_installation_title=0x7f060016;
         /**   Title for notification shown when GooglePlayServices needs to be
         udpated for a application to work. [CHAR LIMIT=70] 
          */
-        public static final int auth_client_needs_update_title=0x7f050017;
+        public static final int auth_client_needs_update_title=0x7f060017;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int auth_client_play_services_err_notification_msg=0x7f050018;
+        public static final int auth_client_play_services_err_notification_msg=0x7f060018;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int auth_client_requested_by_msg=0x7f050019;
+        public static final int auth_client_requested_by_msg=0x7f060019;
         /**   Title for notification shown when a bad version of GooglePlayServices
         has been installed and needs correction for an application to work.
         [CHAR LIMIT=70] 
          */
-        public static final int auth_client_using_bad_version_title=0x7f050014;
+        public static final int auth_client_using_bad_version_title=0x7f060014;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_button=0x7f050006;
+        public static final int common_google_play_services_enable_button=0x7f060006;
         /**  Message in confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_enable_text=0x7f050005;
+        public static final int common_google_play_services_enable_text=0x7f060005;
         /**  Title of confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_title=0x7f050004;
+        public static final int common_google_play_services_enable_title=0x7f060004;
         /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_button=0x7f050003;
+        public static final int common_google_play_services_install_button=0x7f060003;
         /**  (For phones) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_phone=0x7f050001;
+        public static final int common_google_play_services_install_text_phone=0x7f060001;
         /**  (For tablets) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_tablet=0x7f050002;
+        public static final int common_google_play_services_install_text_tablet=0x7f060002;
         /**  Title of confirmation dialog informing user that they need to install
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_title=0x7f050000;
+        public static final int common_google_play_services_install_title=0x7f060000;
         /**  Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_invalid_account_text=0x7f05000c;
+        public static final int common_google_play_services_invalid_account_text=0x7f06000c;
         /**  Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_invalid_account_title=0x7f05000b;
+        public static final int common_google_play_services_invalid_account_title=0x7f06000b;
         /**  Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_network_error_text=0x7f05000a;
+        public static final int common_google_play_services_network_error_text=0x7f06000a;
         /**  Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_network_error_title=0x7f050009;
+        public static final int common_google_play_services_network_error_title=0x7f060009;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unknown_issue=0x7f05000d;
+        public static final int common_google_play_services_unknown_issue=0x7f06000d;
         /**  Message in confirmation dialog informing user that date on the device is not correct,
     causing certificate checks to fail. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_date_text=0x7f050010;
+        public static final int common_google_play_services_unsupported_date_text=0x7f060010;
         /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_text=0x7f05000f;
+        public static final int common_google_play_services_unsupported_text=0x7f06000f;
         /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_unsupported_title=0x7f05000e;
+        public static final int common_google_play_services_unsupported_title=0x7f06000e;
         /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_button=0x7f050011;
+        public static final int common_google_play_services_update_button=0x7f060011;
         /**  Message in confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_update_text=0x7f050008;
+        public static final int common_google_play_services_update_text=0x7f060008;
         /**  Title of confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_title=0x7f050007;
+        public static final int common_google_play_services_update_title=0x7f060007;
         /**  Sign-in button text [CHAR LIMIT=15] 
          */
-        public static final int common_signin_button_text=0x7f050012;
+        public static final int common_signin_button_text=0x7f060012;
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
-        public static final int common_signin_button_text_long=0x7f050013;
-        public static final int hello_world=0x7f05001b;
-        public static final int title_activity_page_topic=0x7f05001d;
+        public static final int common_signin_button_text_long=0x7f060013;
+        public static final int hello_world=0x7f06001b;
+        public static final int title_activity_page_topic=0x7f06001d;
     }
     public static final class style {
         /** 
@@ -401,11 +610,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.
