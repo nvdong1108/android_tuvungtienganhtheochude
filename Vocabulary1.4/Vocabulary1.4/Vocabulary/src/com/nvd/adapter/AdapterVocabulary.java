@@ -4,13 +4,16 @@ import java.util.List;
 
 import com.nvd.data.dataSQLite;
 import com.nvd.data.datavocabulary;
+import com.nvd.item.myTTS;
 import com.nvd.item.vocabulary;
 import com.nvd.vocabulary.PageTopic;
 import com.nvd.vocabulary.R;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +28,8 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 	List<vocabulary> data;
 	dataSQLite db = new dataSQLite(getContext().getApplicationContext());
 	PageTopic tp = new PageTopic();
+	SharedPreferences pre = getContext().getSharedPreferences("name_table",
+			getContext().MODE_PRIVATE);
 
 	public AdapterVocabulary(Context c, int resource, List<vocabulary> objects) {
 		super(c, resource, objects);
@@ -47,9 +52,11 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 		Typeface facee = Typeface.createFromAsset(context.getAssets(),
 				"fonts/TIMESI.TTF"); // tạo kiểu chữ tiếng anh
 		//
+
 		vocabulary v = data.get(position);
 		// anh xa
-		TextView txtWordEnglish = (TextView) view.findViewById(R.id.txt_tvEng);
+		final TextView txtWordEnglish = (TextView) view
+				.findViewById(R.id.txt_tvEng);
 		TextView txtWordVietNam = (TextView) view.findViewById(R.id.txt_tvVN);
 		ImageView icon_music = (ImageView) view.findViewById(R.id.ic_speakers);
 		hinhanh = (ImageView) view.findViewById(R.id.img_tv);
@@ -58,11 +65,13 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 				.findViewById(R.id.ic_yeuthich_true);
 		final ImageView icon_yeuthich_false = (ImageView) view
 				.findViewById(R.id.ic_yeuthich_false);
+		final int id = v.getId();
+		final String nametable = v.getNametable();
 		//
 		txtWordVietNam.setTypeface(facev); //
 		txtWordVietNam.setTypeface(facee); //
 		//
-		
+
 		hinhanh.setImageResource(v.getHinhanh());
 		txtWordEnglish.setText(v.getEng());
 		txtWordVietNam.setText(v.getVn());
@@ -80,7 +89,8 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 
 			@Override
 			public void onClick(View v) {
-
+				myTTS speak = new myTTS(txtWordEnglish.getText().toString(),
+						context);
 			}
 		});
 		// bỏ chọn yêu thích
@@ -88,10 +98,12 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 
 			@Override
 			public void onClick(View v) {
+
 				icon_yeuthich_true.setVisibility(View.GONE);
 				icon_yeuthich_false.setVisibility(View.VISIBLE);
-				// String ENG = data.get(i).getWordEnglish();
-				// db.UpdateVocabulary(ENG, 0);
+				db.opendatabase();
+				db.UPLOAD_YEUTHICH(nametable, id, 0);
+				db.close();
 
 			}
 		});
@@ -102,15 +114,13 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 			public void onClick(View v) {
 				icon_yeuthich_true.setVisibility(View.VISIBLE);
 				icon_yeuthich_false.setVisibility(View.GONE);
-				//
-				// String ENG = data.get(i).getWordEnglish();
+				db.opendatabase();
 
-				// db.UpdateVocabulary(ENG, 1);
-
+				db.UPLOAD_YEUTHICH(nametable, id, 1);
+				db.close();
 			}
 		});
 
 		return view;
 	}
-
 }

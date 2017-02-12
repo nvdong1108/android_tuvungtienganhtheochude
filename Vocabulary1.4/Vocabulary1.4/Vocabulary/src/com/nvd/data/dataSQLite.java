@@ -48,6 +48,21 @@ public class dataSQLite extends SQLiteOpenHelper {
 
 	}
 
+	public void UPLOAD_YEUTHICH(String tb, int id, int yeuthich) {
+		String sql = "UPDATE " + tb + " SET yeuthich = " + yeuthich
+				+ " WHERE id = " + id + "";
+		SQLiteDatabase db = getWritableDatabase();
+		db.execSQL(sql);
+	}
+
+	//
+	public void UPLOAD_V_YEUTHICH(String eng, int id, int yeuthich) {
+		String sql = "UPDATE family SET yeuthich = " + yeuthich
+				+ " WHERE id = " + id + " and eng = '" + eng + "'";
+		SQLiteDatabase db = getWritableDatabase();
+		db.execSQL(sql);
+	}
+
 	//
 	public void UPLOAD_IMG(String tb, int id, int img) {
 		String sql = "UPDATE " + tb + " SET hinhanh = " + img + " WHERE id = "
@@ -201,8 +216,158 @@ public class dataSQLite extends SQLiteOpenHelper {
 		UPLOAD_IMG("animals", 36, R.drawable.stork);
 		UPLOAD_IMG("animals", 37, R.drawable.crane);
 		UPLOAD_IMG("animals", 38, R.drawable.heron);
-//		UPLOAD_IMG("animals", 39, R.drawable.bul);
-//		UPLOAD_IMG("animals", 40, R.drawable.ca);
+		UPLOAD_IMG("animals", 39, R.drawable.bull);
+		UPLOAD_IMG("animals", 40, R.drawable.calf);
+		//
+		UPLOAD_IMG("animals", 41, R.drawable.chicken);
+		UPLOAD_IMG("animals", 42, R.drawable.cow);
+		UPLOAD_IMG("animals", 43, R.drawable.donkey);
+		UPLOAD_IMG("animals", 44, R.drawable.horse);
+		UPLOAD_IMG("animals", 45, R.drawable.sheep);
+		//
+		UPLOAD_IMG("animals", 46, R.drawable.sow);
+		UPLOAD_IMG("animals", 47, R.drawable.piglet);
+		UPLOAD_IMG("animals", 48, R.drawable.rooster);
+		UPLOAD_IMG("animals", 49, R.drawable.goat);
+		UPLOAD_IMG("animals", 50, R.drawable.grasshopper);
+		//
+		UPLOAD_IMG("animals", 51, R.drawable.cricket);
+		UPLOAD_IMG("animals", 52, R.drawable.scorpion);
+		UPLOAD_IMG("animals", 53, R.drawable.cockroach);
+		UPLOAD_IMG("animals", 54, R.drawable.fly);
+		UPLOAD_IMG("animals", 55, R.drawable.spider);
+		//
+		UPLOAD_IMG("animals", 56, R.drawable.ladybug);
+		UPLOAD_IMG("animals", 57, R.drawable.wasp);
+		UPLOAD_IMG("animals", 58, R.drawable.snail);
+		UPLOAD_IMG("animals", 59, R.drawable.worm);
+		UPLOAD_IMG("animals", 60, R.drawable.mosquito);
+		//
+		UPLOAD_IMG("animals", 61, R.drawable.parasites);
+		UPLOAD_IMG("animals", 62, R.drawable.flea);
+		UPLOAD_IMG("animals", 63, R.drawable.beetle);
+		UPLOAD_IMG("animals", 64, R.drawable.butterfly);
+		UPLOAD_IMG("animals", 65, R.drawable.caterpillar);
+		//
+		UPLOAD_IMG("animals", 66, R.drawable.cocoon);
+		UPLOAD_IMG("animals", 67, R.drawable.dragonfly);
+		UPLOAD_IMG("animals", 68, R.drawable.praying_mantis);
+		UPLOAD_IMG("animals", 69, R.drawable.bee);
+		UPLOAD_IMG("animals", 70, R.drawable.tarantula);
+		//
+		UPLOAD_IMG("animals", 71, R.drawable.centipede);
+		UPLOAD_IMG("animals", 72, R.drawable.mouse);
+		UPLOAD_IMG("animals", 73, R.drawable.rat);
+		UPLOAD_IMG("animals", 74, R.drawable.squirrel);
+		UPLOAD_IMG("animals", 75, R.drawable.chipmunk);
+		//
+		UPLOAD_IMG("animals", 76, R.drawable.rabbit);
+		UPLOAD_IMG("animals", 77, R.drawable.deer);
+		UPLOAD_IMG("animals", 78, R.drawable.doe);
+		UPLOAD_IMG("animals", 79, R.drawable.wolf_howl);
+		UPLOAD_IMG("animals", 80, R.drawable.fox);
+		//
+		UPLOAD_IMG("animals", 81, R.drawable.bear);
+		UPLOAD_IMG("animals", 82, R.drawable.tiger);
+		UPLOAD_IMG("animals", 83, R.drawable.boar);
+		UPLOAD_IMG("animals", 84, R.drawable.bat);
+		UPLOAD_IMG("animals", 85, R.drawable.beaver);
+		//
+		UPLOAD_IMG("animals", 86, R.drawable.skunk);
+		UPLOAD_IMG("animals", 87, R.drawable.raccoon);
+		UPLOAD_IMG("animals", 88, R.drawable.kangaroo);
+		UPLOAD_IMG("animals", 89, R.drawable.koala_bear);
+		UPLOAD_IMG("animals", 90, R.drawable.porcupine);
+		//
+		UPLOAD_IMG("animals", 91, R.drawable.panda);
+		UPLOAD_IMG("animals", 92, R.drawable.mole);
+		UPLOAD_IMG("animals", 93, R.drawable.polar_bear);
+		UPLOAD_IMG("animals", 94, R.drawable.frog);
+		UPLOAD_IMG("animals", 95, R.drawable.tadpole);
+		//
+		UPLOAD_IMG("animals", 96, R.drawable.toad);
+		UPLOAD_IMG("animals", 97, R.drawable.snake);
+		UPLOAD_IMG("animals", 98, R.drawable.turtl);
+		UPLOAD_IMG("animals", 99, R.drawable.cobra);
+		UPLOAD_IMG("animals", 100, R.drawable.lizard);
+		//
+		UPLOAD_IMG("animals", 101, R.drawable.alligator);
+		UPLOAD_IMG("animals", 102, R.drawable.crocodile);
+		UPLOAD_IMG("animals", 103, R.drawable.dragon);
+		UPLOAD_IMG("animals", 104, R.drawable.dinosaurs);
+		UPLOAD_IMG("animals", 105, R.drawable.chameleon);
+		//
+		UPLOAD_IMG("animals", 106, R.drawable.seagull);
+		UPLOAD_IMG("animals", 107, R.drawable.pelican);
+		UPLOAD_IMG("animals", 108, R.drawable.seal);
+		UPLOAD_IMG("animals", 109, R.drawable.walrus);
+		UPLOAD_IMG("animals", 110, R.drawable.fish);
+		//
+		UPLOAD_IMG("animals", 111, R.drawable.octopus);
+		UPLOAD_IMG("animals", 112, R.drawable.dolphin);
+		UPLOAD_IMG("animals", 113, R.drawable.squid);
+		UPLOAD_IMG("animals", 114, R.drawable.shark);
+		UPLOAD_IMG("animals", 115, R.drawable.jellyfish);
+		//
+		UPLOAD_IMG("animals", 116, R.drawable.sea_horse);
+		UPLOAD_IMG("animals", 117, R.drawable.whale);
+		UPLOAD_IMG("animals", 118, R.drawable.starfish);
+		UPLOAD_IMG("animals", 119, R.drawable.lobster);
+		UPLOAD_IMG("animals", 120, R.drawable.shrimp);
+		//
+		UPLOAD_IMG("animals", 121, R.drawable.pearl);
+		UPLOAD_IMG("animals", 122, R.drawable.eel);
+		UPLOAD_IMG("animals", 123, R.drawable.shellfish);
+		UPLOAD_IMG("animals", 124, R.drawable.coral);
+		UPLOAD_IMG("animals", 125, R.drawable.clam);
+		//
+		UPLOAD_IMG("animals", 126, R.drawable.crab);
+		/*
+		 * table sprot
+		 */
+		UPLOAD_IMG("sport", 1, R.drawable.gymnastics);
+		UPLOAD_IMG("sport", 2, R.drawable.tennis);
+		UPLOAD_IMG("sport", 3, R.drawable.running);
+		UPLOAD_IMG("sport", 4, R.drawable.swimming);
+		UPLOAD_IMG("sport", 5, R.drawable.riding);
+		//
+		UPLOAD_IMG("sport", 6, R.drawable.volleyball);
+		UPLOAD_IMG("sport", 7, R.drawable.football);
+		UPLOAD_IMG("sport", 8, R.drawable.basketball);
+		UPLOAD_IMG("sport", 9, R.drawable.table_tennis);
+		UPLOAD_IMG("sport", 10, R.drawable.baseball);
+		//
+		UPLOAD_IMG("sport", 11, R.drawable.golf);
+		UPLOAD_IMG("sport", 12, R.drawable.skateboarding);
+		UPLOAD_IMG("sport", 13, R.drawable.windsurfing);
+		UPLOAD_IMG("sport", 14, R.drawable.badminton);
+		UPLOAD_IMG("sport", 15, R.drawable.ice_skating);
+		//
+		UPLOAD_IMG("sport", 16, R.drawable.skiing);
+		UPLOAD_IMG("sport", 17, R.drawable.cycling);
+		UPLOAD_IMG("sport", 18, R.drawable.scuba_diving);
+		// UPLOAD_IMG("animals", 19, R.drawable.golf);
+		// UPLOAD_IMG("animals", 20, R.drawable.skateboarding);
+		//
+		/*
+		 * table homme
+		 */
+		UPLOAD_IMG("home", 1, R.drawable.pillow);
+		UPLOAD_IMG("home", 2, R.drawable.sheet);
+		UPLOAD_IMG("home", 3, R.drawable.blanket);
+		UPLOAD_IMG("home", 4, R.drawable.alarm_clock);
+		UPLOAD_IMG("home", 5, R.drawable.mattress);
+		//
+		UPLOAD_IMG("home", 6, R.drawable.chest_of_drawers);
+		UPLOAD_IMG("home", 7, R.drawable.dresser);
+		UPLOAD_IMG("home", 8, R.drawable.bunk_bed);
+		UPLOAD_IMG("home", 9, R.drawable.light_switch);
+		UPLOAD_IMG("home", 10, R.drawable.lamp);
+		//
+		UPLOAD_IMG("home", 11, R.drawable.light_bulb);
+		UPLOAD_IMG("home", 12, R.drawable.candle);
+		UPLOAD_IMG("home", 13, R.drawable.chest);
+
 	}
 
 	//

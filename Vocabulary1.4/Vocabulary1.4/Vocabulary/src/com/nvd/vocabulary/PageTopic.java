@@ -12,6 +12,7 @@ import com.nvd.item.vocabulary;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -63,39 +64,90 @@ public class PageTopic extends Activity {
 	private ArrayList<vocabulary> getListVocabulary(int position) {
 		ArrayList<vocabulary> list = new ArrayList<vocabulary>();
 		Cursor c = null;
+		SharedPreferences pre = getSharedPreferences("name_table", MODE_PRIVATE);
+		SharedPreferences.Editor edit = pre.edit();
 
 		switch (position) {
 		case 0:
+			//
+			edit.putString("name", "yt");
+			edit.commit();
+			//
+			c = database.query("family", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("job", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("sport", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("home", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("animals", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
 
-			c = database.query("family", null, null, null, null, null, null);
-			break;
+			c.close();
+
+			return list;
+
 		case 1:
 
+			edit.putString("name", "family");
+			edit.commit();
+			c = database.query("family", null, null, null, null, null, null);
+			break;
+		case 2:
+
+			edit.putString("name", "job");
+			edit.commit();
 			c = database.query("job", null, null, null, null, null, null);
 			break;
-		// case 2:
-		// c = database.query("tuvung", null, "CHUDE ='SPORT'", null,
-		// null, null, null);
-		// break;
-		// case 3:
-		// c = database.query("tuvung", null, "CHUDE ='FRUITS'", null,
-		// null, null, null);
-		// break;
+		case 3:
+			edit.putString("name", "sport");
+			edit.commit();
+			c = database.query("sport", null, null, null, null, null, null);
+			break;
 		case 4:
-
+			edit.putString("name", "home");
+			edit.commit();
+			c = database.query("home", null, null, null, null, null, null);
+			break;
+		case 5:
+			edit.putString("name", "animals");
+			edit.commit();
 			c = database.query("animals", null, null, null, null, null, null);
 			break;
-		// case 5:
-		// c = database.query("tuvung", null, "YEUTHICH =1", null, null,
-		// null, null);
-		// break;
+
 		default:
 			c = database.query("job", null, null, null, null, null, null);
 			break;
 		}
 		while (c.moveToNext()) {
 			list.add(new vocabulary(c.getInt(0), c.getString(1),
-					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5)));
+					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5),c.getString(6)));
 		}
 		c.close();
 

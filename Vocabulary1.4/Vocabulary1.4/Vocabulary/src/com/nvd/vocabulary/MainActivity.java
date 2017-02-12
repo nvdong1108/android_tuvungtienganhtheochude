@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.internal.ei;
 import com.nvd.adapter.AdapterTopic;
 import com.nvd.data.dataSQLite;
 import com.nvd.data.datavocabulary;
@@ -65,7 +66,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		//
 		SharedPreferences pre = getSharedPreferences("sttdata", MODE_PRIVATE);
 		sttdata = pre.getBoolean("sttdata", true);
-		if (true)// lần mở qpps đầu tiên
+		if (sttdata)// lần mở qpps đầu tiên
 		{
 			doCreateDb();
 			doDeleteDb();
@@ -114,6 +115,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 			long arg3) {
+		//
+
+		//
 		Intent nextPage = new Intent(this, PageTopic.class);
 		nextPage.putExtra("position", position);
 		startActivity(nextPage);
@@ -121,12 +125,15 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
 	private void KhaiBao() {
 		//
-		arrTopic.add(new Topic(R.drawable.icon_family32, "Gia Đình"));
-		arrTopic.add(new Topic(R.drawable.icon_work32, "Nghề nghiệp"));
-		arrTopic.add(new Topic(R.drawable.icon_sport32, "Thể Thao"));
-		arrTopic.add(new Topic(R.drawable.icon_fruit48, "Trái Cây"));
-		arrTopic.add(new Topic(R.drawable.icon_animals42, "Động Vật"));
-		arrTopic.add(new Topic(R.drawable.icon_star48, "Yêu Thích"));
+		arrTopic.add(new Topic(R.drawable.icon_star48, "Từ vụng yêu thích"));
+		//
+		arrTopic.add(new Topic(R.drawable.icon_family32,
+				"Xưng hô trong gia gình")); // 0
+		arrTopic.add(new Topic(R.drawable.icon_work32, "Tên nghề nghiệp")); // 1
+		arrTopic.add(new Topic(R.drawable.icon_sport32, "Tên môn thể thao")); // 2
+		arrTopic.add(new Topic(R.drawable.icon_fruit48, "Vật dụng trong nhà")); // 3
+		arrTopic.add(new Topic(R.drawable.icon_animals42, "Tên loại động vật")); // 4
+
 		managerdatabase = new dataSQLite(getApplicationContext());
 		managerdatabase.opendatabase();
 		managerdatabase.UPLOAD_ALL_IMG();

@@ -7,9 +7,10 @@ public class vocabulary {
 	private String phatam;
 	private int yeuthich;
 	private int hinhanh;
+	private String nametable;
 
 	public vocabulary(int id, String eng, String vn, String phatam,
-			int yeuthich, int hinhanh) {
+			int yeuthich, int hinhanh, String NameTable) {
 		super();
 		this.id = id;
 		this.eng = eng;
@@ -17,6 +18,20 @@ public class vocabulary {
 		this.phatam = phatam;
 		this.yeuthich = yeuthich;
 		this.hinhanh = hinhanh;
+		this.nametable = NameTable;
+	}
+
+	public String getNametable() {
+		return nametable;
+	}
+
+	public void setNametable(String nametable) {
+		this.nametable = nametable;
+	}
+
+	public vocabulary() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
