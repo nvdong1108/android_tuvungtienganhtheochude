@@ -69,32 +69,27 @@ public class PageTopic extends Activity {
 
 			c = database.query("family", null, null, null, null, null, null);
 			break;
-		// case 1:
-		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='JOB'");
-		// c = database.query("tuvung", null, "CHUDE ='JOB'", null, null,
-		// null, null);
-		// break;
+		case 1:
+
+			c = database.query("job", null, null, null, null, null, null);
+			break;
 		// case 2:
-		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='SPORT'");
 		// c = database.query("tuvung", null, "CHUDE ='SPORT'", null,
 		// null, null, null);
 		// break;
 		// case 3:
-		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='FRUITS'");
 		// c = database.query("tuvung", null, "CHUDE ='FRUITS'", null,
 		// null, null, null);
 		// break;
-		// case 4:
-		// // c = db.getData("SELECT * FROM tuvung WHERE CHUDE ='ANIMAL'");
-		// c = database.query("tuvung", null, "CHUDE ='ANIMAL'", null,
-		// null, null, null);
-		// break;
+		case 4:
+
+			c = database.query("animals", null, null, null, null, null, null);
+			break;
 		// case 5:
-		// // c = db.getData("SELECT * FROM tuvung WHERE YEUTHICH =1");
 		// c = database.query("tuvung", null, "YEUTHICH =1", null, null,
 		// null, null);
 		// break;
-		default: 
+		default:
 			c = database.query("job", null, null, null, null, null, null);
 			break;
 		}

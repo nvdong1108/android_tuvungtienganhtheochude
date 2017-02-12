@@ -153,10 +153,56 @@ public class dataSQLite extends SQLiteOpenHelper {
 		//
 		UPLOAD_IMG("family", 36, R.drawable.fosterling);
 		UPLOAD_IMG("family", 37, R.drawable.orphan);
-		// UPLOAD_IMG("family", 8, R.drawable.great_uncle);
-		// UPLOAD_IMG("family", 9, R.drawable.great_aunt);
-		// UPLOAD_IMG("family", 10, R.drawable.parent);
-
+		/*
+		 * table animals
+		 */
+		UPLOAD_IMG("animals", 1, R.drawable.zebra);
+		UPLOAD_IMG("animals", 2, R.drawable.giraffe);
+		UPLOAD_IMG("animals", 3, R.drawable.rhinoceros);
+		UPLOAD_IMG("animals", 4, R.drawable.elephant);
+		UPLOAD_IMG("animals", 5, R.drawable.lion);
+		//
+		UPLOAD_IMG("animals", 6, R.drawable.lioness);
+		UPLOAD_IMG("animals", 7, R.drawable.cheetah);
+		UPLOAD_IMG("animals", 8, R.drawable.leopard);
+		UPLOAD_IMG("animals", 9, R.drawable.hyena);
+		UPLOAD_IMG("animals", 10, R.drawable.hippopotamus);
+		//
+		UPLOAD_IMG("animals", 11, R.drawable.camel);
+		UPLOAD_IMG("animals", 12, R.drawable.monkey);
+		UPLOAD_IMG("animals", 13, R.drawable.chimpanzee);
+		UPLOAD_IMG("animals", 14, R.drawable.gnu);
+		UPLOAD_IMG("animals", 15, R.drawable.gorilla);
+		//
+		UPLOAD_IMG("animals", 16, R.drawable.baboon);
+		UPLOAD_IMG("animals", 17, R.drawable.antelope);
+		UPLOAD_IMG("animals", 18, R.drawable.gazelle);
+		UPLOAD_IMG("animals", 19, R.drawable.pigeon);
+		UPLOAD_IMG("animals", 20, R.drawable.eagle);
+		//
+		UPLOAD_IMG("animals", 21, R.drawable.owl);
+		UPLOAD_IMG("animals", 22, R.drawable.falcon);
+		UPLOAD_IMG("animals", 23, R.drawable.dove);
+		UPLOAD_IMG("animals", 24, R.drawable.vulture);
+		UPLOAD_IMG("animals", 25, R.drawable.sparrow);
+		//
+		UPLOAD_IMG("animals", 26, R.drawable.crow);
+		UPLOAD_IMG("animals", 27, R.drawable.goose);
+		UPLOAD_IMG("animals", 28, R.drawable.duck);
+		UPLOAD_IMG("animals", 29, R.drawable.turkey);
+		UPLOAD_IMG("animals", 30, R.drawable.penguin);
+		//
+		UPLOAD_IMG("animals", 31, R.drawable.woodpecker);
+		UPLOAD_IMG("animals", 32, R.drawable.ostrich);
+		UPLOAD_IMG("animals", 33, R.drawable.parrot);
+		UPLOAD_IMG("animals", 34, R.drawable.peacock);
+		UPLOAD_IMG("animals", 35, R.drawable.swan);
+		//
+		UPLOAD_IMG("animals", 36, R.drawable.stork);
+		UPLOAD_IMG("animals", 37, R.drawable.crane);
+		UPLOAD_IMG("animals", 38, R.drawable.heron);
+//		UPLOAD_IMG("animals", 39, R.drawable.bul);
+//		UPLOAD_IMG("animals", 40, R.drawable.ca);
 	}
 
 	//
