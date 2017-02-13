@@ -350,23 +350,136 @@ public class dataSQLite extends SQLiteOpenHelper {
 		// UPLOAD_IMG("animals", 20, R.drawable.skateboarding);
 		//
 		/*
-		 * table homme
+		 * table badroom
 		 */
-		UPLOAD_IMG("home", 1, R.drawable.pillow);
-		UPLOAD_IMG("home", 2, R.drawable.sheet);
-		UPLOAD_IMG("home", 3, R.drawable.blanket);
-		UPLOAD_IMG("home", 4, R.drawable.alarm_clock);
-		UPLOAD_IMG("home", 5, R.drawable.mattress);
+		UPLOAD_IMG("bedroom", 1, R.drawable.pillow);
+		UPLOAD_IMG("bedroom", 2, R.drawable.sheet);
+		UPLOAD_IMG("bedroom", 3, R.drawable.blanket);
+		UPLOAD_IMG("bedroom", 4, R.drawable.alarm_clock);
+		UPLOAD_IMG("bedroom", 5, R.drawable.mattress);
 		//
-		UPLOAD_IMG("home", 6, R.drawable.chest_of_drawers);
-		UPLOAD_IMG("home", 7, R.drawable.dresser);
-		UPLOAD_IMG("home", 8, R.drawable.bunk_bed);
-		UPLOAD_IMG("home", 9, R.drawable.light_switch);
-		UPLOAD_IMG("home", 10, R.drawable.lamp);
+		UPLOAD_IMG("bedroom", 6, R.drawable.chest_of_drawers);
+		UPLOAD_IMG("bedroom", 7, R.drawable.dresser);
+		UPLOAD_IMG("bedroom", 8, R.drawable.bunk_bed);
+		UPLOAD_IMG("bedroom", 9, R.drawable.light_switch);
+		UPLOAD_IMG("bedroom", 10, R.drawable.lamp);
 		//
-		UPLOAD_IMG("home", 11, R.drawable.light_bulb);
-		UPLOAD_IMG("home", 12, R.drawable.candle);
-		UPLOAD_IMG("home", 13, R.drawable.chest);
+		UPLOAD_IMG("bedroom", 11, R.drawable.light_bulb);
+		UPLOAD_IMG("bedroom", 12, R.drawable.candle);
+		UPLOAD_IMG("bedroom", 13, R.drawable.chest);
+		/*
+		 * table bathroom
+		 */
+		UPLOAD_IMG("bathroom", 1, R.drawable.bathtub);
+		UPLOAD_IMG("bathroom", 2, R.drawable.soap);
+		UPLOAD_IMG("bathroom", 3, R.drawable.shower);
+		UPLOAD_IMG("bathroom", 4, R.drawable.sink);
+		UPLOAD_IMG("bathroom", 5, R.drawable.faucet);
+		//
+		UPLOAD_IMG("bathroom", 6, R.drawable.toilet);
+		UPLOAD_IMG("bathroom", 7, R.drawable.shampoo);
+		UPLOAD_IMG("bathroom", 8, R.drawable.toilet_paper);
+		UPLOAD_IMG("bathroom", 9, R.drawable.toilet_brush);
+		UPLOAD_IMG("bathroom", 10, R.drawable.plunger);
+		//
+		UPLOAD_IMG("bathroom", 11, R.drawable.tissue);
+		UPLOAD_IMG("bathroom", 12, R.drawable.marble);
+		UPLOAD_IMG("bathroom", 13, R.drawable.towel);
+		UPLOAD_IMG("bathroom", 14, R.drawable.hairbrush);
+		UPLOAD_IMG("bathroom", 15, R.drawable.comb);
+		//
+		UPLOAD_IMG("bathroom", 16, R.drawable.mirror);
+		UPLOAD_IMG("bathroom", 17, R.drawable.hair_dryer);
+		UPLOAD_IMG("bathroom", 18, R.drawable.perfume);
+		UPLOAD_IMG("bathroom", 19, R.drawable.deodorant);
+		UPLOAD_IMG("bathroom", 20, R.drawable.lipstick);
+		//
+		UPLOAD_IMG("bathroom", 21, R.drawable.toothbrush);
+		UPLOAD_IMG("bathroom", 22, R.drawable.nail_polish);
+		UPLOAD_IMG("bathroom", 23, R.drawable.mascara);
+		UPLOAD_IMG("bathroom", 24, R.drawable.eye_iner);
+		UPLOAD_IMG("bathroom", 25, R.drawable.powder);
+		//
+		UPLOAD_IMG("bathroom", 26, R.drawable.floss);
+		UPLOAD_IMG("bathroom", 27, R.drawable.toothpaste);
+		UPLOAD_IMG("bathroom", 28, R.drawable.razor);
+		UPLOAD_IMG("bathroom", 29, R.drawable.razor_blade);
+		UPLOAD_IMG("bathroom", 30, R.drawable.tweezers);
+		// /
+		UPLOAD_IMG("bathroom", 31, R.drawable.shaving_cream);
+		UPLOAD_IMG("bathroom", 32, R.drawable.nail_clippers);
+		UPLOAD_IMG("bathroom", 33, R.drawable.hairspray);
+		UPLOAD_IMG("bathroom", 34, R.drawable.cotton_swab);
+		UPLOAD_IMG("bathroom", 35, R.drawable.medicine_cabinet);
+		/*
+		 * table kitchen
+		 */
+		UPLOAD_IMG("kitchen", 1, R.drawable.fridge);
+		UPLOAD_IMG("kitchen", 2, R.drawable.stove);
+		UPLOAD_IMG("kitchen", 3, R.drawable.toaster);
+		UPLOAD_IMG("kitchen", 4, R.drawable.can_opener);
+		UPLOAD_IMG("kitchen", 5, R.drawable.jar);
+		//
+		UPLOAD_IMG("kitchen", 6, R.drawable.mixer);
+		UPLOAD_IMG("kitchen", 7, R.drawable.blender);
+		UPLOAD_IMG("kitchen", 8, R.drawable.microwave);
+		UPLOAD_IMG("kitchen", 9, R.drawable.food_processor);
+		UPLOAD_IMG("kitchen", 10, R.drawable.can);
+		//
+		UPLOAD_IMG("kitchen", 11, R.drawable.sink);
+		UPLOAD_IMG("kitchen", 12, R.drawable.paper_towel);
+		UPLOAD_IMG("kitchen", 13, R.drawable.sponge);
+		UPLOAD_IMG("kitchen", 14, R.drawable.dishwasher);
+		UPLOAD_IMG("kitchen", 15, R.drawable.coffee_maker);
+		//
+		UPLOAD_IMG("kitchen", 16, R.drawable.coffee_grinder);
+		UPLOAD_IMG("kitchen", 17, R.drawable.pot);
+		UPLOAD_IMG("kitchen", 18, R.drawable.skillet);
+		UPLOAD_IMG("kitchen", 19, R.drawable.tray);
+		UPLOAD_IMG("kitchen", 20, R.drawable.teakettle);
+		//
+		UPLOAD_IMG("kitchen", 21, R.drawable.knife);
+		UPLOAD_IMG("kitchen", 22, R.drawable.cutting_board);
+		UPLOAD_IMG("kitchen", 23, R.drawable.whisk);
+		UPLOAD_IMG("kitchen", 24, R.drawable.rolling_pin);
+		UPLOAD_IMG("kitchen", 25, R.drawable.muffin_pan);
+		//
+		UPLOAD_IMG("kitchen", 26, R.drawable.spatula);
+		UPLOAD_IMG("kitchen", 27, R.drawable.grater);
+		UPLOAD_IMG("kitchen", 28, R.drawable.colander);
+		UPLOAD_IMG("kitchen", 29, R.drawable.strainer);
+		UPLOAD_IMG("kitchen", 30, R.drawable.measuring_cup);
+		// /
+		UPLOAD_IMG("kitchen", 31, R.drawable.measuring_spoon);
+		UPLOAD_IMG("kitchen", 32, R.drawable.apron);
+		/*
+		 * table phong đựng đồ
+		 */
+		UPLOAD_IMG("utilitytool", 1, R.drawable.bleach);
+		UPLOAD_IMG("utilitytool", 2, R.drawable.broom);
+		UPLOAD_IMG("utilitytool", 3, R.drawable.clothes_line);
+		UPLOAD_IMG("utilitytool", 4, R.drawable.clothes_pin);
+		UPLOAD_IMG("utilitytool", 5, R.drawable.dustpan);
+		//
+		UPLOAD_IMG("utilitytool", 6, R.drawable.fly_swatter);
+		UPLOAD_IMG("utilitytool", 7, R.drawable.hanger);
+		UPLOAD_IMG("utilitytool", 8, R.drawable.iron);
+		UPLOAD_IMG("utilitytool", 9, R.drawable.dryer);
+		UPLOAD_IMG("utilitytool", 10, R.drawable.ironing_board);
+		//
+		UPLOAD_IMG("utilitytool", 11, R.drawable.dirty_clothes_hamper);
+		UPLOAD_IMG("utilitytool", 12, R.drawable.lighter);
+		UPLOAD_IMG("utilitytool", 13, R.drawable.matchbook);
+		UPLOAD_IMG("utilitytool", 14, R.drawable.mop);
+		UPLOAD_IMG("utilitytool", 15, R.drawable.scrub_brush);
+		//
+		UPLOAD_IMG("utilitytool", 16, R.drawable.spray_bottle);
+		UPLOAD_IMG("utilitytool", 17, R.drawable.trash_bag);
+		UPLOAD_IMG("utilitytool", 18, R.drawable.trash_can);
+		UPLOAD_IMG("utilitytool", 19, R.drawable.vacuum_cleaner);
+		UPLOAD_IMG("utilitytool", 20, R.drawable.washing_machine);
+		//
+		UPLOAD_IMG("utilitytool", 21, R.drawable.knife);
 
 	}
 
