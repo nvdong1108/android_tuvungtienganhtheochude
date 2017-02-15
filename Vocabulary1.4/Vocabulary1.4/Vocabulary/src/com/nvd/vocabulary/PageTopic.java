@@ -20,16 +20,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class PageTopic extends Activity {
+public class PageTopic extends Activity implements OnClickListener {
+	//
 	ListView lv_vocabulary;
+	ImageView ic_game;
 	AdapterVocabulary adapter;
 	ArrayList<vocabulary> Listvocabulary = new ArrayList<vocabulary>();
 	// dataSQLite db = new dataSQLite(this);
@@ -64,6 +68,10 @@ public class PageTopic extends Activity {
 		adapter = new AdapterVocabulary(this, R.layout.item_vocabulary,
 				getListVocabulary(extra.getInt("position")));
 		lv_vocabulary.setAdapter(adapter);
+		// bắt sự kiện
+		ic_game.setOnClickListener(this);
+
+		//
 		// Lấy đối tượng Spinner ra
 		Spinner spin = (Spinner) findViewById(R.id.spinner1);
 		// Gán Data source (arr) vào Adapter
@@ -182,6 +190,7 @@ public class PageTopic extends Activity {
 
 	private void AnhXa() {
 		lv_vocabulary = (ListView) findViewById(R.id.lv_vocabulary);
+		ic_game = (ImageView) findViewById(R.id.ic_game);
 		//
 		listSp = new ArrayList<String>();
 	}
@@ -193,7 +202,7 @@ public class PageTopic extends Activity {
 		switch (position) {
 		case 0:
 			//
-
+			listSp.add("Tất cả");
 			//
 			c = database.query("family", null, "yeuthich=1", null, null, null,
 					null);
@@ -236,15 +245,15 @@ public class PageTopic extends Activity {
 			return list;
 
 		case 1:
-
+			listSp.add("Tất cả");
 			c = database.query("family", null, null, null, null, null, null);
 			break;
 		case 2:
-
+			listSp.add("Tất cả");
 			c = database.query("job", null, null, null, null, null, null);
 			break;
 		case 3:
-
+			listSp.add("Tất cả");
 			c = database.query("sport", null, null, null, null, null, null);
 			break;
 		case 4:
@@ -292,6 +301,7 @@ public class PageTopic extends Activity {
 
 			break;
 		case 5:
+			listSp.add("Tất cả");
 			c = database.query("animals", null, null, null, null, null, null);
 			break;
 
@@ -314,32 +324,12 @@ public class PageTopic extends Activity {
 		database = openOrCreateDatabase("data.sqlite", MODE_PRIVATE, null);
 	}
 
-	public void updateLopName(String W_ENG, int YEUTHICH) {
-		ContentValues values = new ContentValues();
-		values.put("YEUTHICH", YEUTHICH);
-		String msg = "";
-		int ret = database.update("tuvung", values, "W_ENG=?",
-				new String[] { W_ENG });
-		if (ret == 0) {
-			msg = "Failed to update";
-		} else {
-			msg = "updating is successful";
+	@Override
+	public void onClick(View v) {
+		if (v == ic_game) {
+			
 		}
-		Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-	}
 
-	public void loadalllop() {
-		Cursor c = database.query("tbllop", null, null, null, null, null, null);
-		c.moveToFirst();
-		String data = "";
-		while (c.isAfterLast() == false) {
-			data += c.getString(0) + "-" + c.getString(1) + "-"
-					+ c.getString(2);
-			data += "\n";
-			c.moveToNext();
-		}
-		Toast.makeText(this, data, Toast.LENGTH_LONG).show();
-		c.close();
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.nvd.data;
 
+import java.util.ArrayList;
+
+import com.nvd.item.vocabulary;
 import com.nvd.vocabulary.R;
 
 import android.content.ContentValues;
@@ -38,6 +41,30 @@ public class dataSQLite extends SQLiteOpenHelper {
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL(sql);
 
+	}
+
+	public ArrayList<vocabulary> SELECT_TABLE(String tb) {
+		ArrayList<vocabulary> list = new ArrayList<vocabulary>();
+		Cursor c = null;
+		c = database.query(tb, null, null, null, null, null, null);
+		while (c.moveToNext()) {
+			list.add(new vocabulary(c.getInt(0), c.getString(1),
+					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5), c
+							.getString(6)));
+		}
+		c.close();
+		database.close();
+		return list;
+	}
+
+	public int SELECT_ID(String vn, String tb) {
+		int id = 0;
+		Cursor c = null;
+		c = database.query(tb, null, "vn='" + vn + "'", null, null, null, null);
+		id = c.getInt(1);
+		c.moveToNext();
+		c.close();
+		return id;
 	}
 
 	public void UpdateVocabulary(String W_ENG, int YEUTHICH) {

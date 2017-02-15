@@ -12,9 +12,9 @@
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-1395380684132176/1215547441" 
-        android:layout_alignParentBottom="true"/>
+        ads:adUnitId="ca-app-pub-1395380684132176/1215547441" />
 
     <LinearLayout
         android:id="@+id/lv_heder"
@@ -49,7 +49,8 @@
         android:id="@+id/lv_topic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/lv_heder" >
+        android:layout_below="@+id/lv_heder"
+        android:dividerHeight="5.0px" >
     </ListView>
 
 </RelativeLayout>
