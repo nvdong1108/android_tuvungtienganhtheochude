@@ -43,15 +43,121 @@ public class dataSQLite extends SQLiteOpenHelper {
 
 	}
 
-	public ArrayList<vocabulary> SELECT_TABLE(String tb) {
+	public int GET_SIZE_LIST() {
 		ArrayList<vocabulary> list = new ArrayList<vocabulary>();
 		Cursor c = null;
-		c = database.query(tb, null, null, null, null, null, null);
+		c = database
+				.query("family", null, "yeuthich=1", null, null, null, null);
 		while (c.moveToNext()) {
 			list.add(new vocabulary(c.getInt(0), c.getString(1),
 					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5), c
 							.getString(6)));
 		}
+		c = database.query("job", null, "yeuthich=1", null, null, null, null);
+		while (c.moveToNext()) {
+			list.add(new vocabulary(c.getInt(0), c.getString(1),
+					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5), c
+							.getString(6)));
+		}
+		c = database.query("sport", null, "yeuthich=1", null, null, null, null);
+		while (c.moveToNext()) {
+			list.add(new vocabulary(c.getInt(0), c.getString(1),
+					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5), c
+							.getString(6)));
+		}
+		c = database.query("bedroom", null, "yeuthich=1", null, null, null,
+				null);
+		while (c.moveToNext()) {
+			list.add(new vocabulary(c.getInt(0), c.getString(1),
+					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5), c
+							.getString(6)));
+		}
+		c = database.query("animals", null, "yeuthich=1", null, null, null,
+				null);
+		while (c.moveToNext()) {
+			list.add(new vocabulary(c.getInt(0), c.getString(1),
+					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5), c
+							.getString(6)));
+		}
+		c.close();
+		database.close();
+		return list.size();
+	}
+
+	public ArrayList<vocabulary> SELECT_TABLE(String tb) {
+		ArrayList<vocabulary> list = new ArrayList<vocabulary>();
+		Cursor c = null;
+		if (tb.equals("yt")) {
+			c = database.query("family", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("job", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("sport", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("bedroom", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("animals", null, "yeuthich=1", null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+		} else if (tb.equals("house")) {
+			c = database.query("kitchen", null, null, null, null, null, null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("bedroom", null, null, null, null, null, null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("utilitytool", null, null, null, null, null,
+					null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+			c = database.query("bathroom", null, null, null, null, null, null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+		} else {
+			c = database.query(tb, null, null, null, null, null, null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
+			}
+		}
+
 		c.close();
 		database.close();
 		return list;

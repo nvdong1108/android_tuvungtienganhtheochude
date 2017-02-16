@@ -2,6 +2,7 @@ package com.nvd.adapter;
 
 import java.util.List;
 
+import com.nvd.data.dataSQLite;
 import com.nvd.item.Topic;
 
 import com.nvd.vocabulary.GamePicture;
@@ -61,13 +62,29 @@ public class AdapterTopic extends ArrayAdapter<Topic> {
 
 			@Override
 			public void onClick(View arg0) {
-				Intent inten = new Intent(context, GamePicture.class);
-				inten.putExtra("position", position);
-				context.startActivity(inten);
+				if (position == 0) {
+					dataSQLite managerdatabase = new dataSQLite(getContext());
+					managerdatabase.opendatabase();
+					if (managerdatabase.GET_SIZE_LIST() < 5) {
+						Toast.makeText(getContext(),
+								"Số từ vụng yêu thích phải lớn hơn 4",
+								Toast.LENGTH_LONG).show();
+					} else {
+						Intent inten = new Intent(context, GamePicture.class);
+						inten.putExtra("position", position);
+						context.startActivity(inten);
+					}
+					managerdatabase.close();
+
+				} else {
+					Intent inten = new Intent(context, GamePicture.class);
+					inten.putExtra("position", position);
+					context.startActivity(inten);
+				}
+
 			}
 		});
 		txt_name_topic.setText(topic.getNameTopic());
 		return view;
 	}
-
 }

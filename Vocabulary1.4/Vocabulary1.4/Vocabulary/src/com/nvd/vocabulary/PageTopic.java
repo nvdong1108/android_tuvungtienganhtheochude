@@ -13,6 +13,7 @@ import com.nvd.item.vocabulary;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,6 +32,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class PageTopic extends Activity implements OnClickListener {
+	private ImageView ic_back_vocabulary;
 	//
 	ListView lv_vocabulary;
 	ImageView ic_game;
@@ -38,6 +40,7 @@ public class PageTopic extends Activity implements OnClickListener {
 	ArrayList<vocabulary> Listvocabulary = new ArrayList<vocabulary>();
 	// dataSQLite db = new dataSQLite(this);
 	//
+
 	SQLiteDatabase database = null;
 
 	//
@@ -189,10 +192,14 @@ public class PageTopic extends Activity implements OnClickListener {
 	}
 
 	private void AnhXa() {
+		ic_back_vocabulary = (ImageView) findViewById(R.id.ic_back_vocabulary);
+
 		lv_vocabulary = (ListView) findViewById(R.id.lv_vocabulary);
 		ic_game = (ImageView) findViewById(R.id.ic_game);
 		//
 		listSp = new ArrayList<String>();
+		//
+		ic_back_vocabulary.setOnClickListener(this);
 	}
 
 	private ArrayList<vocabulary> getListVocabulary(int position) {
@@ -326,10 +333,13 @@ public class PageTopic extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if (v == ic_game) {
-			
+		if (v == ic_back_vocabulary) {
+			Intent inten = new Intent(getApplicationContext(),
+					MainActivity.class);
+			startActivity(inten);
+		} else if (v == ic_game) {
+
 		}
 
 	}
-
 }
