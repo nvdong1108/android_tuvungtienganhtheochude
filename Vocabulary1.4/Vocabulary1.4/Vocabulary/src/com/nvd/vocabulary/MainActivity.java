@@ -10,30 +10,30 @@ import java.util.ArrayList;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.internal.ei;
+
 import com.nvd.adapter.AdapterTopic;
 import com.nvd.data.dataSQLite;
-import com.nvd.data.datavocabulary;
+
 import com.nvd.item.Topic;
-import com.nvd.item.vocabulary;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.app.Dialog;
+import android.app.ActionBar.LayoutParams;
+
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.view.View.OnClickListener;
+
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnItemClickListener {
+public class MainActivity extends Activity {
 	private boolean sttdata = true;
 	ListView lv_topic;
 	AdapterTopic adapter;
@@ -55,7 +55,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		setContentView(R.layout.activity_main);
 
 		interstitial = new InterstitialAd(MainActivity.this);
-		interstitial.setAdUnitId("ca-app-pub-1395380684132176/1215547441");
+		interstitial.setAdUnitId("ca-app-pub-1395380684132176/8475294247");
 		adView = (AdView) this.findViewById(R.id.adView);
 		AdRequest adRequest = new AdRequest.Builder()
 				.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -66,41 +66,32 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		//
 		SharedPreferences pre = getSharedPreferences("sttdata", MODE_PRIVATE);
 		sttdata = pre.getBoolean("sttdata", true);
-		if (sttdata)// lần mở qpps đầu tiên
+		if (true)// lần mở qpps đầu tiên
 		{
 			doCreateDb();
 			doDeleteDb();
+			try {
+				copydatabase();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			SharedPreferences.Editor edit = pre.edit();
 			edit.putBoolean("sttdata", false);
 			edit.commit();
+			managerdatabase = new dataSQLite(getApplicationContext());
+			managerdatabase.opendatabase();
+			managerdatabase.UPLOAD_ALL_IMG();
+			managerdatabase.close();
 		}
-		try {
-			copydatabase();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//
-		AnhXa();
+
 		KhaiBao();
 		//
 		adapter = new AdapterTopic(this, R.layout.item_topic, arrTopic);
 		lv_topic.setAdapter(adapter);
-		lv_topic.setOnItemClickListener(this);
+
 	}
 
-	//
-	public void doDeleteDb() {
-		String msg = "";
-		if (deleteDatabase("data.sqlite") == true) {
-			msg = "Delete database  is successful";
-		} else {
-			msg = "Delete database is failed";
-		}
-		// Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-	}
-
-	private void AnhXa() {
+	private void KhaiBao() {
 		Typeface facev = Typeface.createFromAsset(getAssets(),
 				"fonts/ANTQUAB.TTF"); // tạo kiểu chữ tiếng việt
 		Typeface facee = Typeface.createFromAsset(getAssets(),
@@ -110,20 +101,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		txt2 = (TextView) findViewById(R.id.txt_heder2);
 		txt1.setTypeface(facev);
 		txt2.setTypeface(facee);
-	}
-
-	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-			long arg3) {
-		//
-
-		//
-		// Intent nextPage = new Intent(this, PageTopic.class);
-		// nextPage.putExtra("position", position);
-		// startActivity(nextPage);
-	}
-
-	private void KhaiBao() {
 		//
 		arrTopic.add(new Topic(R.drawable.icon_star48, "Từ vụng yêu thích"));
 		//
@@ -134,16 +111,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		arrTopic.add(new Topic(R.drawable.icon_fruit48, "Vật dụng trong nhà")); // 3
 		arrTopic.add(new Topic(R.drawable.icon_animals42, "Tên loại động vật")); // 4
 
-		managerdatabase = new dataSQLite(getApplicationContext());
-		managerdatabase.opendatabase();
-		managerdatabase.UPLOAD_ALL_IMG();
-		managerdatabase.close();
-
 	}
 
 	//
 	public void copydatabase() throws IOException {
-		// Toast.makeText(this, "Đã đến hàm copy", Toast.LENGTH_LONG).show();
 		if (!checkDataBase()) {
 			OutputStream myOutput = new FileOutputStream(path + name);
 
@@ -157,15 +128,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			myInput.close();
 			myOutput.flush();
 			myOutput.close();
-
-			// Toast.makeText(this, "Đã Copy", Toast.LENGTH_LONG).show();
 		}
-		// else
-		// Toast.makeText(this, "Khong Copy", Toast.LENGTH_LONG).show();
-
 	}
-
-	//
 
 	private boolean checkDataBase() {
 		File dbFile = new File(path + name);
@@ -177,4 +141,41 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		database = openOrCreateDatabase("data.sqlite", MODE_PRIVATE, null);
 	}
 
+	@Override
+	public void onBackPressed() {
+
+		final Dialog dialog = new Dialog(this, R.style.My_Dialog_Theme);
+		dialog.setCancelable(false);
+		dialog.setCanceledOnTouchOutside(false);
+		dialog.setContentView(R.layout.dialog_back);
+		dialog.getWindow().setLayout(LayoutParams.MATCH_PARENT,
+				LayoutParams.WRAP_CONTENT);
+		dialog.show();
+		//
+		Button btb_co = (Button) dialog.findViewById(R.id.btb_co);
+		Button btb_khong = (Button) dialog.findViewById(R.id.btb_khong);
+		btb_co.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				finish();
+
+			}
+		});
+		btb_khong.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				dialog.dismiss();
+			}
+		});
+	}
+
+	public void doDeleteDb() {
+
+		deleteDatabase("data.sqlite");
+
+	}
 }

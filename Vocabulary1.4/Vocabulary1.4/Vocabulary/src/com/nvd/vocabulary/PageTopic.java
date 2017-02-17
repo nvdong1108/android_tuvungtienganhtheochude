@@ -12,6 +12,8 @@ import com.nvd.data.datavocabulary;
 import com.nvd.item.vocabulary;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.ActionBar.LayoutParams;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -56,7 +58,7 @@ public class PageTopic extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_page_topic);
 		//
 		interstitial = new InterstitialAd(PageTopic.this);
-		interstitial.setAdUnitId("ca-app-pub-1395380684132176/1215547441");
+		interstitial.setAdUnitId("ca-app-pub-1395380684132176/8475294247");
 		adView = (AdView) this.findViewById(R.id.adView2);
 		AdRequest adRequest = new AdRequest.Builder()
 				.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -105,78 +107,98 @@ public class PageTopic extends Activity implements OnClickListener {
 			} else if (extra.getInt("position") == 3) {
 
 			} else if (extra.getInt("position") == 4) {
-				// vat dung trong nha
-				// listSp.add("Phòng khách");
-				// listSp.add("Nhà bếp");
-				// listSp.add("Phòng ngủ");
-				// listSp.add("Buồng đựng đồ");
-				// listSp.add("Nhà vệ sinh");
+
 				if (position_Spinner == 0) {
 
-					c = database.query("kitchen", null, null, null, null, null,
+					c = database.query("house", null, null, null, null, null,
 							null);
-					while (c.moveToNext()) {
-						list2.add(new vocabulary(c.getInt(0), c.getString(1), c
-								.getString(2), c.getString(3), c.getInt(4), c
-								.getInt(5), c.getString(6)));
-					}
-					c = database.query("bedroom", null, null, null, null, null,
-							null);
-					while (c.moveToNext()) {
-						list2.add(new vocabulary(c.getInt(0), c.getString(1), c
-								.getString(2), c.getString(3), c.getInt(4), c
-								.getInt(5), c.getString(6)));
-					}
-					c = database.query("utilitytool", null, null, null, null,
-							null, null);
-					while (c.moveToNext()) {
-						list2.add(new vocabulary(c.getInt(0), c.getString(1), c
-								.getString(2), c.getString(3), c.getInt(4), c
-								.getInt(5), c.getString(6)));
-					}
-					c = database.query("bathroom", null, null, null, null,
-							null, null);
-					while (c.moveToNext()) {
-						list2.add(new vocabulary(c.getInt(0), c.getString(1), c
-								.getString(2), c.getString(3), c.getInt(4), c
-								.getInt(5), c.getString(6)));
-					}
-					c.close();
 
 				} else if (position_Spinner == 1) {
 
-					c = database.query("kitchen", null, null, null, null, null,
-							null);
+					c = database.query("house", null, "nhom='utility-room'",
+							null, null, null, null);
 
 				} else if (position_Spinner == 2) {
 
-					c = database.query("bedroom", null, null, null, null, null,
-							null);
+					c = database.query("house", null, "nhom='the-den'", null,
+							null, null, null);
 
 				} else if (position_Spinner == 3) {
 
-					c = database.query("utilitytool", null, null, null, null,
-							null, null);
+					c = database.query("house", null, "nhom='kitchen'", null,
+							null, null, null);
 
 				} else if (position_Spinner == 4) {
 
-					c = database.query("bathroom", null, null, null, null,
-							null, null);
+					c = database.query("house", null, "nhom='house'", null,
+							null, null, null);
+
+				} else if (position_Spinner == 5) {
+
+					c = database.query("house", null, "nhom='dinning-room'",
+							null, null, null, null);
+
+				} else if (position_Spinner == 6) {
+
+					c = database.query("house", null, "nhom='bathroom'", null,
+							null, null, null);
+
+				} else if (position_Spinner == 7) {
+
+					c = database.query("house", null, "nhom='Bedroom'", null,
+							null, null, null);
 
 				}
 
-				if (position_Spinner != 0) {
-					while (c.moveToNext()) {
-						list2.add(new vocabulary(c.getInt(0), c.getString(1), c
-								.getString(2), c.getString(3), c.getInt(4), c
-								.getInt(5), c.getString(6)));
-					}
-					c.close();
+				while (c.moveToNext()) {
+					list2.add(new vocabulary(c.getInt(0), c.getString(1), c
+							.getString(2), c.getString(3), c.getInt(4), c
+							.getInt(5), c.getString(6)));
 				}
+				c.close();
+
 				adapter = new AdapterVocabulary(getApplicationContext(),
 						R.layout.item_vocabulary, list2);
 				lv_vocabulary.setAdapter(adapter);
 			} else if (extra.getInt("position") == 5) {
+				if (position_Spinner == 1) {
+					c = database.query("animals2", null,
+							"nhom='african_nimals'", null, null, null, null);
+				} else if (position_Spinner == 2) {
+					c = database.query("animals2", null, "nhom='birds'", null,
+							null, null, null);
+				} else if (position_Spinner == 3) {
+					c = database.query("animals2", null, "nhom='farm-animals'",
+							null, null, null, null);
+				} else if (position_Spinner == 4) {
+					c = database.query("animals2", null, "nhom='insects'",
+							null, null, null, null);
+				} else if (position_Spinner == 5) {
+					c = database.query("animals2", null, "nhom='mammals'",
+							null, null, null, null);
+				} else if (position_Spinner == 6) {
+					c = database.query("animals2", null, "nhom='pets'", null,
+							null, null, null);
+				} else if (position_Spinner == 7) {
+					c = database.query("animals2", null,
+							"nhom='reptiles-amphibians'", null, null, null,
+							null);
+				} else if (position_Spinner == 8) {
+					c = database.query("animals2", null, "nhom='sea-animals'",
+							null, null, null, null);
+				} else if (position_Spinner == 0) {
+					c = database.query("animals2", null, null, null, null,
+							null, null);
+				}
+				while (c.moveToNext()) {
+					list2.add(new vocabulary(c.getInt(0), c.getString(1), c
+							.getString(2), c.getString(3), c.getInt(4), c
+							.getInt(5), c.getString(6)));
+				}
+				c.close();
+				adapter = new AdapterVocabulary(getApplicationContext(),
+						R.layout.item_vocabulary, list2);
+				lv_vocabulary.setAdapter(adapter);
 
 			} else {
 
@@ -264,52 +286,35 @@ public class PageTopic extends Activity implements OnClickListener {
 			c = database.query("sport", null, null, null, null, null, null);
 			break;
 		case 4:
-			listSp.add("Tất cả");
-			listSp.add("Nhà bếp");
-			listSp.add("Phòng ngủ");
-			listSp.add("Buồng đựng đồ");
-			listSp.add("Nhà vệ sinh");
-			if (true) {
-				c = database.query("kitchen", null, null, null, null, null,
-						null);
-				while (c.moveToNext()) {
-					list.add(new vocabulary(c.getInt(0), c.getString(1), c
-							.getString(2), c.getString(3), c.getInt(4), c
-							.getInt(5), c.getString(6)));
-				}
-				c = database.query("bedroom", null, null, null, null, null,
-						null);
-				while (c.moveToNext()) {
-					list.add(new vocabulary(c.getInt(0), c.getString(1), c
-							.getString(2), c.getString(3), c.getInt(4), c
-							.getInt(5), c.getString(6)));
-				}
-				c = database.query("utilitytool", null, null, null, null, null,
-						null);
-				while (c.moveToNext()) {
-					list.add(new vocabulary(c.getInt(0), c.getString(1), c
-							.getString(2), c.getString(3), c.getInt(4), c
-							.getInt(5), c.getString(6)));
-				}
-				c = database.query("bathroom", null, null, null, null, null,
-						null);
-				while (c.moveToNext()) {
-					list.add(new vocabulary(c.getInt(0), c.getString(1), c
-							.getString(2), c.getString(3), c.getInt(4), c
-							.getInt(5), c.getString(6)));
-				}
-				c.close();
-				return list;
-			} else {
+			listSp.add("All");
+			listSp.add("Utility room");
+			listSp.add("The den");
+			listSp.add("Kitchen");
+			listSp.add("House");
+			listSp.add("dinning room ");
+			listSp.add("Bathroom");
+			listSp.add("Bedroom");
+			c = database.query("house", null, null, null, null, null, null);
 
-				c = database.query("bedroom", null, null, null, null, null,
-						null);
+			while (c.moveToNext()) {
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c
+						.getString(2), c.getString(3), c.getInt(4),
+						c.getInt(5), c.getString(6)));
 			}
+			c.close();
 
 			break;
 		case 5:
-			listSp.add("Tất cả");
-			c = database.query("animals", null, null, null, null, null, null);
+			listSp.add("All");
+			listSp.add("Afican nimals");
+			listSp.add("Birds");
+			listSp.add("Farm animals");
+			listSp.add("Insects");
+			listSp.add("Mammals");
+			listSp.add("Pets");
+			listSp.add("Reptiles amphibians");
+			listSp.add("Sea animals");
+			c = database.query("animals2", null, null, null, null, null, null);
 			break;
 
 		default:
@@ -340,6 +345,46 @@ public class PageTopic extends Activity implements OnClickListener {
 		} else if (v == ic_game) {
 
 		}
+
+	}
+
+	@Override
+	public void onBackPressed() {
+
+		final Dialog dialo = new Dialog(this, R.style.My_Dialog_Theme);
+		dialo.setCancelable(false);
+		dialo.setCanceledOnTouchOutside(false);
+		dialo.setContentView(R.layout.dialog_back);
+		dialo.getWindow().setLayout(LayoutParams.MATCH_PARENT,
+				LayoutParams.WRAP_CONTENT);
+		dialo.show();
+		//
+		Button btb_co = (Button) dialo.findViewById(R.id.btb_co);
+		Button btb_khong = (Button) dialo.findViewById(R.id.btb_khong);
+		btb_co.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// Khoi tao lai Activity main
+				// Intent intent = new Intent(getApplicationContext(),
+				// MainActivity.class);
+				// startActivity(intent);
+				// Tao su kien ket thuc app
+				Intent startMain = new Intent(Intent.ACTION_MAIN);
+				startMain.addCategory(Intent.CATEGORY_HOME);
+				startActivity(startMain);
+				finish();
+
+			}
+		});
+		btb_khong.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				dialo.dismiss();
+			}
+		});
 
 	}
 }

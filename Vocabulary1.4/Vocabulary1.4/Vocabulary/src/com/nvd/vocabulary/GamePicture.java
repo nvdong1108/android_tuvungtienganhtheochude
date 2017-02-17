@@ -20,6 +20,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -73,7 +74,7 @@ public class GamePicture extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_game_picture);
 		//
 		interstitial = new InterstitialAd(GamePicture.this);
-		interstitial.setAdUnitId("ca-app-pub-1395380684132176/1215547441");
+		interstitial.setAdUnitId("ca-app-pub-1395380684132176/8475294247");
 		adView = (AdView) this.findViewById(R.id.adView2);
 		AdRequest adRequest = new AdRequest.Builder()
 				.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -307,6 +308,42 @@ public class GamePicture extends Activity implements OnClickListener {
 		txt_id_tv2_game.setText(list.get(tmpList.get(ib)).getId() + "");
 		txt_id_tv3_game.setText(list.get(tmpList.get(ic)).getId() + "");
 		txt_id_tv4_game.setText(list.get(tmpList.get(id)).getId() + "");
+	}
+
+	@Override
+	public void onBackPressed() {
+
+		final Dialog dialo = new Dialog(this, R.style.My_Dialog_Theme);
+		dialo.setCancelable(false);
+		dialo.setCanceledOnTouchOutside(false);
+		dialo.setContentView(R.layout.dialog_back);
+		dialo.getWindow().setLayout(LayoutParams.MATCH_PARENT,
+				LayoutParams.WRAP_CONTENT);
+		dialo.show();
+		//
+		Button btb_co = (Button) dialo.findViewById(R.id.btb_co);
+		Button btb_khong = (Button) dialo.findViewById(R.id.btb_khong);
+		btb_co.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// Khoi tao lai Activity main
+				Intent startMain = new Intent(Intent.ACTION_MAIN);
+				startMain.addCategory(Intent.CATEGORY_HOME);
+				startActivity(startMain);
+				finish();
+
+			}
+		});
+		btb_khong.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				dialo.dismiss();
+			}
+		});
+
 	}
 
 	@Override
