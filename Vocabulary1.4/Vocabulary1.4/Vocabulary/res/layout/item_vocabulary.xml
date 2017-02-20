@@ -40,13 +40,13 @@
                     android:id="@+id/ic_yeuthich_true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/icon_star32_true" />
+                    android:src="@drawable/ic_love_t" />
 
                 <ImageView
                     android:id="@+id/ic_yeuthich_false"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/icon_start32_false" />
+                    android:src="@drawable/ic_love_f" />
             </RelativeLayout>
         </LinearLayout>
 

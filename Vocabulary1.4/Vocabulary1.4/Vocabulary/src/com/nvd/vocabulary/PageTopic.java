@@ -1,5 +1,10 @@
 package com.nvd.vocabulary;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +25,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,8 +55,11 @@ public class PageTopic extends Activity implements OnClickListener {
 	private InterstitialAd interstitial;
 	AdView adView;
 	//
-	private List<String> listSp;
-	private int position_toolsbar;
+	private String[] listSp;
+
+	private dataSQLite managerdatabase;
+	private static final String name = "data.sqlite";
+	private static final String path = "/data/data/com.nvd.vocabulary/databases/";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,12 +75,35 @@ public class PageTopic extends Activity implements OnClickListener {
 		adView.loadAd(adRequest);
 		interstitial.loadAd(adRequest);
 		//
+
+		SharedPreferences pre = getSharedPreferences("sttdata", MODE_PRIVATE);
+		int sttdata = pre.getInt("STT_vertion", 0);
+		if (sttdata == 3)// lần mở qpps đầu tiên
+		{
+			doCreateDb();
+			doDeleteDb();
+			try {
+				copydatabase();
+				Toast.makeText(getApplicationContext(), "copy",
+						Toast.LENGTH_SHORT).show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			SharedPreferences.Editor edit = pre.edit();
+			edit.putInt("STT_vertion", 4);
+			edit.commit();
+			managerdatabase = new dataSQLite(getApplicationContext());
+			managerdatabase.opendatabase();
+			managerdatabase.UPLOAD_ALL_IMG();
+			managerdatabase.close();
+		}
+		//
 		AnhXa();
 		doCreateDb();
 		Bundle extra = getIntent().getExtras();
 
 		adapter = new AdapterVocabulary(this, R.layout.item_vocabulary,
-				getListVocabulary(extra.getInt("position")));
+				getListVocabulary(extra.getString("nametb")));
 		lv_vocabulary.setAdapter(adapter);
 		// bắt sự kiện
 		ic_game.setOnClickListener(this);
@@ -92,6 +124,29 @@ public class PageTopic extends Activity implements OnClickListener {
 
 	}
 
+	public void copydatabase() throws IOException {
+		if (!checkDataBase()) {
+			OutputStream myOutput = new FileOutputStream(path + name);
+
+			byte[] buffer = new byte[1024];
+			int length;
+			InputStream myInput = this.getAssets().open("data.sqlite");
+
+			while ((length = myInput.read(buffer)) > 0) {
+				myOutput.write(buffer, 0, length);
+			}
+			myInput.close();
+			myOutput.flush();
+			myOutput.close();
+		}
+	}
+
+	private boolean checkDataBase() {
+		File dbFile = new File(path + name);
+		Log.v("dbFile", dbFile + "   " + dbFile.exists());
+		return dbFile.exists();
+	}
+
 	private class MyProcessEvent implements OnItemSelectedListener {
 		// Khi có chọn lựa thì vào hàm này
 		public void onItemSelected(AdapterView<?> arg0, View arg1,
@@ -100,109 +155,39 @@ public class PageTopic extends Activity implements OnClickListener {
 			Bundle extra = getIntent().getExtras();
 			ArrayList<vocabulary> list2 = new ArrayList<vocabulary>();
 			Cursor c = null;
-			if (extra.getInt("position") == 1) {
-
-			} else if (extra.getInt("position") == 2) {
-
-			} else if (extra.getInt("position") == 3) {
-
-			} else if (extra.getInt("position") == 4) {
-
-				if (position_Spinner == 0) {
-
-					c = database.query("house", null, null, null, null, null,
-							null);
-
-				} else if (position_Spinner == 1) {
-
-					c = database.query("house", null, "nhom='utility-room'",
-							null, null, null, null);
-
-				} else if (position_Spinner == 2) {
-
-					c = database.query("house", null, "nhom='the-den'", null,
+			if (extra.getString("nametb").equals("yt")) {
+				String[] listNametb = { "tb_congviec", "tb_school",
+						"tb_giaothong" };
+				for (int i = 0; i < listNametb.length; i++) {
+					c = database.query(listNametb[i], null, "yeuthich=1", null,
 							null, null, null);
-
-				} else if (position_Spinner == 3) {
-
-					c = database.query("house", null, "nhom='kitchen'", null,
-							null, null, null);
-
-				} else if (position_Spinner == 4) {
-
-					c = database.query("house", null, "nhom='house'", null,
-							null, null, null);
-
-				} else if (position_Spinner == 5) {
-
-					c = database.query("house", null, "nhom='dinning-room'",
-							null, null, null, null);
-
-				} else if (position_Spinner == 6) {
-
-					c = database.query("house", null, "nhom='bathroom'", null,
-							null, null, null);
-
-				} else if (position_Spinner == 7) {
-
-					c = database.query("house", null, "nhom='Bedroom'", null,
-							null, null, null);
-
+					while (c.moveToNext()) {
+						list2.add(new vocabulary(c.getInt(0), c.getString(1), c
+								.getString(2), c.getString(3), c.getInt(4), c
+								.getInt(5), c.getString(7)));
+					}
 				}
-
-				while (c.moveToNext()) {
-					list2.add(new vocabulary(c.getInt(0), c.getString(1), c
-							.getString(2), c.getString(3), c.getInt(4), c
-							.getInt(5), c.getString(6)));
-				}
-				c.close();
-
-				adapter = new AdapterVocabulary(getApplicationContext(),
-						R.layout.item_vocabulary, list2);
-				lv_vocabulary.setAdapter(adapter);
-			} else if (extra.getInt("position") == 5) {
-				if (position_Spinner == 1) {
-					c = database.query("animals2", null,
-							"nhom='african_nimals'", null, null, null, null);
-				} else if (position_Spinner == 2) {
-					c = database.query("animals2", null, "nhom='birds'", null,
-							null, null, null);
-				} else if (position_Spinner == 3) {
-					c = database.query("animals2", null, "nhom='farm-animals'",
-							null, null, null, null);
-				} else if (position_Spinner == 4) {
-					c = database.query("animals2", null, "nhom='insects'",
-							null, null, null, null);
-				} else if (position_Spinner == 5) {
-					c = database.query("animals2", null, "nhom='mammals'",
-							null, null, null, null);
-				} else if (position_Spinner == 6) {
-					c = database.query("animals2", null, "nhom='pets'", null,
-							null, null, null);
-				} else if (position_Spinner == 7) {
-					c = database.query("animals2", null,
-							"nhom='reptiles-amphibians'", null, null, null,
-							null);
-				} else if (position_Spinner == 8) {
-					c = database.query("animals2", null, "nhom='sea-animals'",
-							null, null, null, null);
-				} else if (position_Spinner == 0) {
-					c = database.query("animals2", null, null, null, null,
-							null, null);
-				}
-				while (c.moveToNext()) {
-					list2.add(new vocabulary(c.getInt(0), c.getString(1), c
-							.getString(2), c.getString(3), c.getInt(4), c
-							.getInt(5), c.getString(6)));
-				}
-				c.close();
-				adapter = new AdapterVocabulary(getApplicationContext(),
-						R.layout.item_vocabulary, list2);
-				lv_vocabulary.setAdapter(adapter);
 
 			} else {
-
+				if (position_Spinner == 0) {
+					c = database.query(extra.getString("nametb"), null, null,
+							null, null, null, null);
+				} else {
+					c = database.query(extra.getString("nametb"), null, "nhom="
+							+ position_Spinner + "", null, null, null, null);
+				}
+				while (c.moveToNext()) {
+					list2.add(new vocabulary(c.getInt(0), c.getString(1), c
+							.getString(2), c.getString(3), c.getInt(4), c
+							.getInt(5), c.getString(7)));
+				}
 			}
+
+			c.close();
+			adapter = new AdapterVocabulary(getApplicationContext(),
+					R.layout.item_vocabulary, list2);
+			lv_vocabulary.setAdapter(adapter);
+
 			//
 
 		}
@@ -219,121 +204,98 @@ public class PageTopic extends Activity implements OnClickListener {
 		lv_vocabulary = (ListView) findViewById(R.id.lv_vocabulary);
 		ic_game = (ImageView) findViewById(R.id.ic_game);
 		//
-		listSp = new ArrayList<String>();
+
 		//
 		ic_back_vocabulary.setOnClickListener(this);
 	}
 
-	private ArrayList<vocabulary> getListVocabulary(int position) {
+	private ArrayList<vocabulary> getListVocabulary(String namtb) {
 		ArrayList<vocabulary> list = new ArrayList<vocabulary>();
 		Cursor c = null;
-
-		switch (position) {
-		case 0:
-			//
-			listSp.add("Tất cả");
-			//
-			c = database.query("family", null, "yeuthich=1", null, null, null,
-					null);
-			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getInt(0), c.getString(1), c
-						.getString(2), c.getString(3), c.getInt(4),
-						c.getInt(5), c.getString(6)));
-			}
-			c = database.query("job", null, "yeuthich=1", null, null, null,
-					null);
-			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getInt(0), c.getString(1), c
-						.getString(2), c.getString(3), c.getInt(4),
-						c.getInt(5), c.getString(6)));
-			}
-			c = database.query("sport", null, "yeuthich=1", null, null, null,
-					null);
-			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getInt(0), c.getString(1), c
-						.getString(2), c.getString(3), c.getInt(4),
-						c.getInt(5), c.getString(6)));
-			}
-			c = database.query("bedroom", null, "yeuthich=1", null, null, null,
-					null);
-			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getInt(0), c.getString(1), c
-						.getString(2), c.getString(3), c.getInt(4),
-						c.getInt(5), c.getString(6)));
-			}
-			c = database.query("animals", null, "yeuthich=1", null, null, null,
-					null);
-			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getInt(0), c.getString(1), c
-						.getString(2), c.getString(3), c.getInt(4),
-						c.getInt(5), c.getString(6)));
+		listSp = getListSP(namtb);
+		if (namtb.equals("yt")) {
+			String[] listNametb = { "tb_congviec", "tb_school", "tb_giaothong",
+					"tb_thucan", "tb_trangphuc", "tb_thoitiet", "tb_dialy" };
+			for (int i = 0; i < listNametb.length; i++) {
+				c = database.query(listNametb[i], null, "yeuthich=1", null,
+						null, null, null);
+				while (c.moveToNext()) {
+					list.add(new vocabulary(c.getInt(0), c.getString(1), c
+							.getString(2), c.getString(3), c.getInt(4), c
+							.getInt(5), c.getString(7)));
+				}
 			}
 
-			c.close();
-
-			return list;
-
-		case 1:
-			listSp.add("Tất cả");
-			c = database.query("family", null, null, null, null, null, null);
-			break;
-		case 2:
-			listSp.add("Tất cả");
-			c = database.query("job", null, null, null, null, null, null);
-			break;
-		case 3:
-			listSp.add("Tất cả");
-			c = database.query("sport", null, null, null, null, null, null);
-			break;
-		case 4:
-			listSp.add("All");
-			listSp.add("Utility room");
-			listSp.add("The den");
-			listSp.add("Kitchen");
-			listSp.add("House");
-			listSp.add("dinning room ");
-			listSp.add("Bathroom");
-			listSp.add("Bedroom");
-			c = database.query("house", null, null, null, null, null, null);
+		} else {
+			c = database.query(namtb, null, null, null, null, null, null);
 
 			while (c.moveToNext()) {
 				list.add(new vocabulary(c.getInt(0), c.getString(1), c
 						.getString(2), c.getString(3), c.getInt(4),
-						c.getInt(5), c.getString(6)));
+						c.getInt(5), c.getString(7)));
 			}
-			c.close();
-
-			break;
-		case 5:
-			listSp.add("All");
-			listSp.add("Afican nimals");
-			listSp.add("Birds");
-			listSp.add("Farm animals");
-			listSp.add("Insects");
-			listSp.add("Mammals");
-			listSp.add("Pets");
-			listSp.add("Reptiles amphibians");
-			listSp.add("Sea animals");
-			c = database.query("animals2", null, null, null, null, null, null);
-			break;
-
-		default:
-			c = database.query("job", null, null, null, null, null, null);
-			break;
-		}
-		while (c.moveToNext()) {
-			list.add(new vocabulary(c.getInt(0), c.getString(1),
-					c.getString(2), c.getString(3), c.getInt(4), c.getInt(5), c
-							.getString(6)));
 		}
 		c.close();
-
 		return list;
+	}
+
+	private String[] getListSP(String nametb) {
+
+		if (nametb.equals("tb_congviec")) { // 1
+			String[] list = { "Tất cả - ALL", "Nghề nghiệp",
+					"Nông trại và chăn nuôi gia súc", "Xây dựng",
+					"Trong văn phòng" };
+			return list;
+		} else if (nametb.equals("tb_school")) { // 2
+			String[] list = { "Tất cả - ALL", "Trong lớp học",
+					"Động từ dùng trong lớp học", "Phòng thí nghiệm hóa học",
+					"Toán học" };
+			return list;
+		} else if (nametb.equals("tb_giaothong")) { // 3
+			String[] list = { "Tất cả - ALL", "Xe tải", "Otô con", "Xe đạp",
+					"Phương tiện công cộng", "Đường quốc lộ", "Hàng không",
+					"Các phương tiện bay", "Hải cảng", "Du thuyền",
+					"Lực lượng vũ trang" };
+			return list;
+		} else if (nametb.equals("tb_thucan")) { // 4
+			String[] list = { "Tất cả - ALL", "Các loại trái cây",
+					"Các loại rau củ quả", "Thịt gia súc, gia cầm , hải sản",
+					"Các món ăn", "Quán ăn và quầy nước",
+					"Động từ dùng trong nhà hàng", "Siêu thị",
+					"Các loại chai,hộp và tiền" };
+			return list;
+		} else if (nametb.equals("tb_trangphuc")) { // 5
+			String[] list = { "Tất cả - ALL", "Quần áo ngoài trời",
+					"Quần áo hàng ngày", "Đồ lót và đồ ngủ",
+					"Đồ trang sức và mỹ phẩm" };
+			return list;
+		} else if (nametb.equals("tb_thoitiet")) { // 6
+			String[] list = { "Tất cả - ALL", "Các động từ theo mùa",
+					"Mô tả về thời tiết" };
+			return list;
+		} else if (nametb.equals("tb_dialy")) { //
+			String[] list = { "Tất cả - ALL", "Bản đồ thế giới",
+					"Chương trình không gian", "Vũ trụ" };
+			return list;
+		} else if (nametb.equals("tb_dongvat")) { //
+			String[] list = { "Tất cả - ALL", "1", "2", "3", "4", "5", "6",
+					"7", "8" };
+			return list;
+		}
+		String[] list = { "Tất cả - ALL" };
+		return list;
+
 	}
 
 	//
 	public void doCreateDb() {
 		database = openOrCreateDatabase("data.sqlite", MODE_PRIVATE, null);
+	}
+
+	public void doDeleteDb() {
+
+		deleteDatabase("data.sqlite");
+
 	}
 
 	@Override

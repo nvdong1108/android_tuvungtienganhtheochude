@@ -52,7 +52,7 @@ public class AdapterTopic extends ArrayAdapter<Topic> {
 			@Override
 			public void onClick(View arg0) {
 				Intent inten = new Intent(context, PageTopic.class);
-				inten.putExtra("position", position);
+				inten.putExtra("nametb", getNameTable(position));
 				context.startActivity(inten);
 			}
 		});
@@ -86,5 +86,33 @@ public class AdapterTopic extends ArrayAdapter<Topic> {
 		});
 		txt_name_topic.setText(topic.getNameTopic());
 		return view;
+	}
+
+	public String getNameTable(int position) {
+		//
+		if (position == 1) {
+			return "tb_congviec";
+		} else if (position == 2) {
+			return "tb_school";
+		} else if (position == 3) {
+			return "tb_giaothong";
+		} else if (position == 4) {
+			return "tb_thucan";
+		} else if (position == 5) {
+			return "tb_trangphuc";
+		} else if (position == 6) {
+			return "tb_thoitiet";
+		} else if (position == 7) {
+			return "tb_dialy";
+		} else if (position == 8) {
+			return "tb_dongvat";
+		} else if (position == 9) {
+			return "tb_congviec";
+		} else if (position == 10) {
+			return "tb_congviec";
+		} else {
+			return "yt";
+		}
+
 	}
 }

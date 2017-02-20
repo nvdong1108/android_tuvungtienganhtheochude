@@ -34,7 +34,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	private boolean sttdata = true;
+
 	ListView lv_topic;
 	AdapterTopic adapter;
 	TextView txt1;
@@ -43,11 +43,8 @@ public class MainActivity extends Activity {
 	AdView adView;
 	//
 	ArrayList<Topic> arrTopic = new ArrayList<Topic>();
+
 	//
-	private static final String name = "data.sqlite";
-	private static final String path = "/data/data/com.nvd.vocabulary/databases/";
-	SQLiteDatabase database = null;
-	private dataSQLite managerdatabase;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,34 +52,15 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		interstitial = new InterstitialAd(MainActivity.this);
-		interstitial.setAdUnitId("ca-app-pub-1395380684132176/8475294247");
+		interstitial.setAdUnitId("ca-app-pub-1395380684132176/5598893041");
 		adView = (AdView) this.findViewById(R.id.adView);
 		AdRequest adRequest = new AdRequest.Builder()
 				.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-				.addTestDevice("CC5F2C72DF2B356BBF0DA198").build();
+				.addTestDevice("110894").build();
 		adView.loadAd(adRequest);
 		interstitial.loadAd(adRequest);
 
 		//
-		SharedPreferences pre = getSharedPreferences("sttdata", MODE_PRIVATE);
-		sttdata = pre.getBoolean("sttdata", true);
-		if (true)// lần mở qpps đầu tiên
-		{
-			doCreateDb();
-			doDeleteDb();
-			try {
-				copydatabase();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			SharedPreferences.Editor edit = pre.edit();
-			edit.putBoolean("sttdata", false);
-			edit.commit();
-			managerdatabase = new dataSQLite(getApplicationContext());
-			managerdatabase.opendatabase();
-			managerdatabase.UPLOAD_ALL_IMG();
-			managerdatabase.close();
-		}
 
 		KhaiBao();
 		//
@@ -103,42 +81,16 @@ public class MainActivity extends Activity {
 		txt2.setTypeface(facee);
 		//
 		arrTopic.add(new Topic(R.drawable.icon_star48, "Từ vụng yêu thích"));
-		//
-		arrTopic.add(new Topic(R.drawable.icon_family32,
-				"Xưng hô trong gia gình")); // 0
-		arrTopic.add(new Topic(R.drawable.icon_work32, "Tên nghề nghiệp")); // 1
-		arrTopic.add(new Topic(R.drawable.icon_sport32, "Tên môn thể thao")); // 2
-		arrTopic.add(new Topic(R.drawable.icon_fruit48, "Vật dụng trong nhà")); // 3
-		arrTopic.add(new Topic(R.drawable.icon_animals42, "Tên loại động vật")); // 4
+		// 0
+		arrTopic.add(new Topic(R.drawable.icon_family32, "Công việc")); // 1
+		arrTopic.add(new Topic(R.drawable.icon_work32, "Trường học")); // 2
+		arrTopic.add(new Topic(R.drawable.icon_sport32, "Giao thông")); // 3
+		arrTopic.add(new Topic(R.drawable.icon_family32, "Thức ăn")); // 4
+		arrTopic.add(new Topic(R.drawable.icon_work32, "Trang phuc")); // 5
+		arrTopic.add(new Topic(R.drawable.icon_sport32, "Thời tiết")); // 6
+		arrTopic.add(new Topic(R.drawable.icon_sport32, "Địa lý")); // 7
+		arrTopic.add(new Topic(R.drawable.icon_sport32, "Động vật")); // 8
 
-	}
-
-	//
-	public void copydatabase() throws IOException {
-		if (!checkDataBase()) {
-			OutputStream myOutput = new FileOutputStream(path + name);
-
-			byte[] buffer = new byte[1024];
-			int length;
-			InputStream myInput = this.getAssets().open("data.sqlite");
-
-			while ((length = myInput.read(buffer)) > 0) {
-				myOutput.write(buffer, 0, length);
-			}
-			myInput.close();
-			myOutput.flush();
-			myOutput.close();
-		}
-	}
-
-	private boolean checkDataBase() {
-		File dbFile = new File(path + name);
-		Log.v("dbFile", dbFile + "   " + dbFile.exists());
-		return dbFile.exists();
-	}
-
-	public void doCreateDb() {
-		database = openOrCreateDatabase("data.sqlite", MODE_PRIVATE, null);
 	}
 
 	@Override
@@ -173,9 +125,4 @@ public class MainActivity extends Activity {
 		});
 	}
 
-	public void doDeleteDb() {
-
-		deleteDatabase("data.sqlite");
-
-	}
 }
