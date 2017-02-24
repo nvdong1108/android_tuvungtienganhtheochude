@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nvd.tuvungtienganh"
+    package="com.nvd.engtopic"
     android:versionCode="1"
     android:versionName="1.1" >
 
@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.nvd.tuvungtienganh.MainActivity"
+            android:name="com.nvd.engtopic.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -36,12 +36,12 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nvd.tuvungtienganh.PageTopic"
+            android:name="com.nvd.engtopic.PageTopic"
             android:label="@string/title_activity_page_topic"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nvd.tuvungtienganh.GamePicture"
+            android:name="com.nvd.engtopic.GamePicture"
             android:label="@string/title_activity_game_picture"
             android:screenOrientation="portrait" >
         </activity>

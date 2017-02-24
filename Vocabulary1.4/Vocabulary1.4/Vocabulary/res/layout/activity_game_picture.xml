@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#F6E3CE"
     android:orientation="vertical"
-    tools:context="com.nvd.tuvungtienganh.GamePicture" >
+    tools:context="com.nvd.engtopic.GamePicture" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -260,10 +260,10 @@
     </LinearLayout>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView2"
+        android:id="@+id/adView_g"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         ads:adSize="FULL_BANNER"
-        ads:adUnitId="ca-app-pub-1395380684132176/3254202241" />
+        ads:adUnitId="@string/banner_game" />
 
 </LinearLayout>

@@ -7,8 +7,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
+import com.nvd.engtopic.R;
 import com.nvd.item.vocabulary;
-import com.nvd.tuvungtienganh.R;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -21,8 +21,8 @@ import android.widget.Toast;
 
 public class dataSQLite extends SQLiteOpenHelper {
 	Context context = null;
-	private static final String name = "data.sqlite";
-	private static final String path = "/data/data/com.nvd.tuvungtienganh/databases/";
+	private final String name = "data.sqlite";
+	private final String path = "/data/data/com.nvd.engtopic/databases/";
 	SQLiteDatabase database = null;
 
 	public dataSQLite(Context context) {

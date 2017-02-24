@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#EEE8AA"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.nvd.tuvungtienganh.MainActivity" >
+    tools:context="com.nvd.engtopic.MainActivity" >
 
     <LinearLayout
         android:id="@+id/lv_heder"
@@ -53,11 +53,11 @@
     </LinearLayout>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+        android:id="@+id/adView_M"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         ads:adSize="FULL_BANNER"
-        ads:adUnitId="ca-app-pub-1395380684132176/9300735849" />
+        ads:adUnitId="@string/banner_main" />
 
 </RelativeLayout>

@@ -6,12 +6,12 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.nvd.data.dataSQLite;
+import com.nvd.engtopic.PageTopic;
+import com.nvd.engtopic.R;
 
 import com.nvd.item.myTTS;
 import com.nvd.item.vocabulary;
 
-import com.nvd.tuvungtienganh.PageTopic;
-import com.nvd.tuvungtienganh.R;
 
 import android.content.Context;
 

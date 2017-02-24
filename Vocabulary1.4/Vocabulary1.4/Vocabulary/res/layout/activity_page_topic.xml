@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEE8AA"
-    tools:context="com.nvd.tuvungtienganh.PageTopic" >
+    tools:context="com.nvd.engtopic.PageTopic" >
 
     <LinearLayout
         android:id="@+id/layout1"
@@ -46,11 +46,11 @@
     </ListView>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView2"
+        android:id="@+id/adView_t"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         ads:adSize="FULL_BANNER"
-        ads:adUnitId="ca-app-pub-1395380684132176/1777469046" />
+        ads:adUnitId="@string/banner_topic" />
 
 </RelativeLayout>

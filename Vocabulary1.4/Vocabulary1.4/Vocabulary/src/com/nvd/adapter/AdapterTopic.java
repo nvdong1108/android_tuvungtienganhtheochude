@@ -3,11 +3,11 @@ package com.nvd.adapter;
 import java.util.List;
 
 import com.nvd.data.dataSQLite;
+import com.nvd.engtopic.GamePicture;
+import com.nvd.engtopic.PageTopic;
+import com.nvd.engtopic.R;
 import com.nvd.item.Topic;
 
-import com.nvd.tuvungtienganh.GamePicture;
-import com.nvd.tuvungtienganh.PageTopic;
-import com.nvd.tuvungtienganh.R;
 
 import android.content.Context;
 import android.content.Intent;
