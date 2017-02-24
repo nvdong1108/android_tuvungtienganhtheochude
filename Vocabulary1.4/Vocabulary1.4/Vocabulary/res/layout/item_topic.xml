@@ -76,12 +76,26 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="3dp"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="Chơi game"
+                android:text="Game"
                 android:textColor="#008B8B"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bestdiem_tb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:padding="1dp"
+                android:text="Best "
+                android:textColor="#008B8B"
+                android:textSize="12dp" />
         </LinearLayout>
     </LinearLayout>
 

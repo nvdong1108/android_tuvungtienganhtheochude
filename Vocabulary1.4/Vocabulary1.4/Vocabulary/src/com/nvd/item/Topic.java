@@ -1,29 +1,34 @@
 package com.nvd.item;
 
 public class Topic {
-	private int icon ; 
+	private int bestdiem;
 	private String nameTopic;
-	public Topic(int icon, String nameTopic) {
+
+	public Topic(int bestDiem, String nameTopic) {
 		super();
-		this.icon = icon;
+		this.bestdiem = bestDiem;
 		this.nameTopic = nameTopic;
 	}
+
 	public Topic() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public int getIcon() {
-		return icon;
+
+	public int getBestdiem() {
+		return bestdiem;
 	}
-	public void setIcon(int icon) {
-		this.icon = icon;
+
+	public void setBestdiem(int bestdiem) {
+		this.bestdiem = bestdiem;
 	}
+
 	public String getNameTopic() {
 		return nameTopic;
 	}
+
 	public void setNameTopic(String nameTopic) {
 		this.nameTopic = nameTopic;
-	} 
-	
+	}
 
 }

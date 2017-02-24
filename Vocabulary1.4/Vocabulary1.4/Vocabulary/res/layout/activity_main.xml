@@ -5,15 +5,7 @@
     android:layout_height="match_parent"
     android:background="#EEE8AA"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.nvd.vocabulary.MainActivity" >
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-1395380684132176/8475294247" />
+    tools:context="com.nvd.tuvungtienganh.MainActivity" >
 
     <LinearLayout
         android:id="@+id/lv_heder"
@@ -51,5 +43,21 @@
         android:layout_below="@+id/lv_heder"
         android:dividerHeight="5.0px" >
     </ListView>
+
+    <LinearLayout
+        android:id="@+id/adsful"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="FULL_BANNER"
+        ads:adUnitId="ca-app-pub-1395380684132176/9300735849" />
 
 </RelativeLayout>

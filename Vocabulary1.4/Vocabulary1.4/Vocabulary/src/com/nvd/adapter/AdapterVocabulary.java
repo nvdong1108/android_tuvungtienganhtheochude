@@ -2,18 +2,21 @@ package com.nvd.adapter;
 
 import java.util.List;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.nvd.data.dataSQLite;
-import com.nvd.data.datavocabulary;
+
 import com.nvd.item.myTTS;
 import com.nvd.item.vocabulary;
-import com.nvd.vocabulary.PageTopic;
-import com.nvd.vocabulary.R;
+
+import com.nvd.tuvungtienganh.PageTopic;
+import com.nvd.tuvungtienganh.R;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
-import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +27,11 @@ import android.widget.TextView;
 
 public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 	Context context = null;
+	InterstitialAd interstial;
 	int resID;
 	List<vocabulary> data;
 	dataSQLite db = new dataSQLite(getContext().getApplicationContext());
 	PageTopic tp = new PageTopic();
-	SharedPreferences pre = getContext().getSharedPreferences("name_table",
-			getContext().MODE_PRIVATE);
 
 	public AdapterVocabulary(Context c, int resource, List<vocabulary> objects) {
 		super(c, resource, objects);
@@ -43,7 +45,6 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
-		final int i = position;
 		LayoutInflater inflater = LayoutInflater.from(context);
 		View view = inflater.inflate(resID, parent, false);
 		//
@@ -89,6 +90,8 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 
 			@Override
 			public void onClick(View v) {
+				showAds();
+				//
 				myTTS speak = new myTTS(txtWordEnglish.getText().toString(),
 						context);
 			}
@@ -98,6 +101,9 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 
 			@Override
 			public void onClick(View v) {
+				//
+				// showAds();
+				//
 
 				icon_yeuthich_true.setVisibility(View.GONE);
 				icon_yeuthich_false.setVisibility(View.VISIBLE);
@@ -112,6 +118,8 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 
 			@Override
 			public void onClick(View v) {
+				// showAds();
+				//
 				icon_yeuthich_true.setVisibility(View.VISIBLE);
 				icon_yeuthich_false.setVisibility(View.GONE);
 				db.opendatabase();
@@ -122,5 +130,19 @@ public class AdapterVocabulary extends ArrayAdapter<vocabulary> {
 		});
 
 		return view;
+	}
+
+	private void showAds() {
+		interstial = new InterstitialAd(context);
+		interstial.setAdUnitId("ca-app-pub-1395380684132176/6140289849");
+		AdRequest adreques1 = new AdRequest.Builder().build();
+		interstial.loadAd(adreques1);
+		interstial.setAdListener(new AdListener() {
+			@Override
+			public void onAdLoaded() {
+				super.onAdLoaded();
+				interstial.show();
+			}
+		});
 	}
 }

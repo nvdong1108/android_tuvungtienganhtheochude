@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#F6E3CE"
     android:orientation="vertical"
-    tools:context="com.nvd.vocabulary.GamePicture" >
+    tools:context="com.nvd.tuvungtienganh.GamePicture" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -130,7 +130,7 @@
                     android:layout_width="100dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:src="@drawable/family" />
+                    android:src="@drawable/ic_launcher" />
 
                 <TextView
                     android:id="@+id/txt_vn1_game"
@@ -167,7 +167,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:maxHeight="120dp"
-                    android:src="@drawable/family" />
+                    android:src="@drawable/ic_launcher" />
 
                 <TextView
                     android:id="@+id/txt_vn2_game"
@@ -211,7 +211,7 @@
                     android:layout_width="100dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:src="@drawable/family" />
+                    android:src="@drawable/ic_launcher" />
 
                 <TextView
                     android:id="@+id/txt_vn3_game"
@@ -247,7 +247,7 @@
                     android:layout_width="100dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:src="@drawable/family" />
+                    android:src="@drawable/ic_launcher" />
 
                 <TextView
                     android:id="@+id/txt_vn4_game"
@@ -263,8 +263,7 @@
         android:id="@+id/adView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-1395380684132176/8475294247" />
+        ads:adSize="FULL_BANNER"
+        ads:adUnitId="ca-app-pub-1395380684132176/3254202241" />
 
 </LinearLayout>
