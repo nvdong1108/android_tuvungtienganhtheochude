@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEE8AA"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.nvd.engtopic.MainActivity" >
 
     <LinearLayout
@@ -21,9 +20,9 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="2"
             android:gravity="bottom|left"
-            android:text="Life is a story"
+            android:text="@string/titel_mail"
             android:textColor="#8B4513"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/txt_heder2"
@@ -31,7 +30,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="right|top"
-            android:text="should start learning English now"
+            android:text="@string/titel_mail_bowlo"
             android:textColor="#8B4513"
             android:textStyle="bold" />
     </LinearLayout>
@@ -40,24 +39,17 @@
         android:id="@+id/lv_topic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/adView_mail"
         android:layout_below="@+id/lv_heder"
         android:dividerHeight="5.0px" >
     </ListView>
 
-    <LinearLayout
-        android:id="@+id/adsful"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical" >
-    </LinearLayout>
-
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView_M"
+        android:id="@+id/adView_mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        ads:adSize="FULL_BANNER"
-        ads:adUnitId="@string/banner_main" />
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-1395380684132176/3235388614" />
 
 </RelativeLayout>

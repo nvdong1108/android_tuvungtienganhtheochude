@@ -6,10 +6,19 @@
     android:background="#EEE8AA"
     tools:context="com.nvd.engtopic.PageTopic" >
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView_topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-1395380684132176/3235388614" />
+
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:gravity="center"
         android:orientation="horizontal" >
 
@@ -41,16 +50,11 @@
     <ListView
         android:id="@+id/lv_vocabulary"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/layout1" >
-    </ListView>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView_t"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        ads:adSize="FULL_BANNER"
-        ads:adUnitId="@string/banner_topic" />
+        android:layout_above="@+id/adView_topic"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layout1"
+        android:paddingBottom="2dp" >
+    </ListView>
 
 </RelativeLayout>

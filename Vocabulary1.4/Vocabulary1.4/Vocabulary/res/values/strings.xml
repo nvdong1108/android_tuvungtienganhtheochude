@@ -6,12 +6,12 @@
     <string name="title_activity_page_topic">Từ vựng tiếng anh</string>
     <string name="title_activity_game_picture">GamePicture</string>
     <string name="path">/data/data/com.nvd.vocabulary/databases/</string>
+     <string name="titel_mail">Life is a story</string>
+     <string name="titel_mail_bowlo">should start learning English now</string>
 
     <!-- banner main -->
-    <string name="banner_main">ca-app-pub-1395380684132176/7892564640</string>
-    <!-- banner topic -->
-    <string name="banner_topic">ca-app-pub-1395380684132176/9369297849</string>
-    <!-- banner topic -->
-    <string name="banner_game">ca-app-pub-1395380684132176/1846031049</string>
+    <string name="banner_main">ca-app-pub-1395380684132176/3235388614</string>
+   
+    
 
 </resources>

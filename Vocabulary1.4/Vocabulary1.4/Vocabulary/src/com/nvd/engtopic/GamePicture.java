@@ -1,10 +1,10 @@
 package com.nvd.engtopic;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GamePicture extends Activity implements OnClickListener {
 
@@ -60,32 +61,44 @@ public class GamePicture extends Activity implements OnClickListener {
 	private ArrayList<vocabulary> list;
 	private List<Integer> arrRd;
 	private int STT_COUNT;
-	//
-	InterstitialAd interstial;
-	AdView adView;
-	AdView adview;
 
 	//
-	private InterstitialAd interstitial;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game_picture);
 		//
-		AdView adview = (AdView) findViewById(R.id.adView_g);
-		interstitial = new InterstitialAd(GamePicture.this);
-		interstitial.setAdUnitId("ca-app-pub-1395380684132176/1846031049");
-		AdRequest adRequest = new AdRequest.Builder()
-				.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-				.addTestDevice("CC5F2C72DF2B356BBF0DA198").build();
-		adview.loadAd(adRequest);
-		interstitial.loadAd(adRequest);
-		//
-		showAds();
+		try {
+			AdView adview = (AdView) findViewById(R.id.adView_game);
+			AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+					.addTestDevice("CC5F2C72DF2B356BBF0DA299").build();
+			if (adRequest != null)
+				adview.loadAd(adRequest);
+		} catch (Exception e) {
+			Toast.makeText(getApplicationContext(), "ERR " + e + "", Toast.LENGTH_SHORT).show();
+		}
 		//
 		managerdata = new dataSQLite(getApplicationContext());
+		managerdata = new dataSQLite(getApplicationContext());
+		SharedPreferences pre = getSharedPreferences("TMP_DATA", MODE_PRIVATE);
+		int sttdata = pre.getInt("STT_vertion", 1);
+		if (sttdata == 1)// lần mở qpps đầu tiên
+		{
+			managerdata.doCreateDb();
+			managerdata.doDeleteDb();
 
+			try {
+				managerdata.copydatabase();
+				managerdata.UPLOAD_IMG_TABLE("");
+				Toast.makeText(getApplicationContext(), "copy", Toast.LENGTH_SHORT).show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			SharedPreferences.Editor edit = pre.edit();
+			edit.putInt("STT_vertion", 2);
+			edit.commit();
+
+		}
 		anhxa();
 		showQuestion(arrRd.get(0));
 	}
@@ -162,12 +175,9 @@ public class GamePicture extends Activity implements OnClickListener {
 	int b, c, d;
 
 	private void showdialog(final int id) {
-		showAds();
-		final Dialog dialog = new Dialog(GamePicture.this,
-				R.style.My_Dialog_Theme);
+		final Dialog dialog = new Dialog(GamePicture.this, R.style.My_Dialog_Theme);
 		dialog.setContentView(R.layout.dialog_game_over);
-		dialog.getWindow().setLayout(LayoutParams.MATCH_PARENT,
-				LayoutParams.WRAP_CONTENT);
+		dialog.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		dialog.show();
 		//
 
@@ -180,13 +190,10 @@ public class GamePicture extends Activity implements OnClickListener {
 		phatam.setText(list.get(arrRd.get(STT_COUNT)).getPhatam());
 		hinhanh.setImageResource(list.get(arrRd.get(STT_COUNT)).getHinhanh());
 		//
-		ImageView ic_cancel = (ImageView) dialog
-				.findViewById(R.id.ic_cancel_dialog_game_over);
+		ImageView ic_cancel = (ImageView) dialog.findViewById(R.id.ic_cancel_dialog_game_over);
 		//
-		final ImageView ic_love_t = (ImageView) dialog
-				.findViewById(R.id.ic_love_t);
-		final ImageView ic_love_f = (ImageView) dialog
-				.findViewById(R.id.ic_love_f);
+		final ImageView ic_love_t = (ImageView) dialog.findViewById(R.id.ic_love_t);
+		final ImageView ic_love_f = (ImageView) dialog.findViewById(R.id.ic_love_f);
 		if (list.get(arrRd.get(STT_COUNT)).getYeuthich() == 0) {
 			ic_love_t.setVisibility(View.GONE);
 			ic_love_f.setVisibility(View.VISIBLE);
@@ -195,8 +202,7 @@ public class GamePicture extends Activity implements OnClickListener {
 			ic_love_f.setVisibility(View.GONE);
 		}
 
-		ImageView ic_speak_game = (ImageView) dialog
-				.findViewById(R.id.ic_speakers_dialog_game);
+		ImageView ic_speak_game = (ImageView) dialog.findViewById(R.id.ic_speakers_dialog_game);
 		ic_cancel.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -212,8 +218,7 @@ public class GamePicture extends Activity implements OnClickListener {
 				ic_love_t.setVisibility(View.GONE);
 				ic_love_f.setVisibility(View.VISIBLE);
 				managerdata.opendatabase();
-				managerdata.UPLOAD_YEUTHICH(list.get(arrRd.get(STT_COUNT))
-						.getNametable(), id, 0);
+				managerdata.UPLOAD_YEUTHICH(list.get(arrRd.get(STT_COUNT)).getNametable(), id, 0);
 				managerdata.close();
 				// Toast.makeText(getApplicationContext(),
 				// list.get(arrRd.get(STT_COUNT)).getNametable(),
@@ -228,8 +233,7 @@ public class GamePicture extends Activity implements OnClickListener {
 				ic_love_t.setVisibility(View.VISIBLE);
 				ic_love_f.setVisibility(View.GONE);
 				managerdata.opendatabase();
-				managerdata.UPLOAD_YEUTHICH(list.get(arrRd.get(STT_COUNT))
-						.getNametable(), id, 1);
+				managerdata.UPLOAD_YEUTHICH(list.get(arrRd.get(STT_COUNT)).getNametable(), id, 1);
 				managerdata.close();
 				//
 
@@ -256,8 +260,7 @@ public class GamePicture extends Activity implements OnClickListener {
 			edit.putInt("BEST_DIEM_" + NAME_TABLE, STT_COUNT);
 			edit.commit();
 		} else
-			txt_best_diem
-					.setText(pre.getInt("BEST_DIEM_" + NAME_TABLE, 0) + "");
+			txt_best_diem.setText(pre.getInt("BEST_DIEM_" + NAME_TABLE, 0) + "");
 
 		txt_eng_game.setText(list.get(stt).getEng());
 		//
@@ -309,15 +312,12 @@ public class GamePicture extends Activity implements OnClickListener {
 
 	@Override
 	public void onBackPressed() {
-
-		showAds();
 		//
 		final Dialog dialo = new Dialog(this, R.style.My_Dialog_Theme);
 		dialo.setCancelable(false);
 		dialo.setCanceledOnTouchOutside(false);
 		dialo.setContentView(R.layout.dialog_back);
-		dialo.getWindow().setLayout(LayoutParams.MATCH_PARENT,
-				LayoutParams.WRAP_CONTENT);
+		dialo.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		dialo.show();
 		//
 		Button btb_co = (Button) dialo.findViewById(R.id.btb_co);
@@ -349,12 +349,10 @@ public class GamePicture extends Activity implements OnClickListener {
 	public void onClick(View v) {
 
 		if (v == ic_home_game) {
-			Intent inten = new Intent(getApplicationContext(),
-					MainActivity.class);
+			Intent inten = new Intent(getApplicationContext(), MainActivity.class);
 			startActivity(inten);
 		} else if (v == layoutgame1) {
-			if (list.get(arrRd.get(STT_COUNT)).getId() == Integer
-					.parseInt(txt_id_tv1_game.getText().toString())) {
+			if (list.get(arrRd.get(STT_COUNT)).getId() == Integer.parseInt(txt_id_tv1_game.getText().toString())) {
 
 				STT_COUNT++;
 				showQuestion(arrRd.get(STT_COUNT));
@@ -368,8 +366,7 @@ public class GamePicture extends Activity implements OnClickListener {
 			}
 
 		} else if (v == layoutgame2) {
-			if (list.get(arrRd.get(STT_COUNT)).getId() == Integer
-					.parseInt(txt_id_tv2_game.getText().toString())) {
+			if (list.get(arrRd.get(STT_COUNT)).getId() == Integer.parseInt(txt_id_tv2_game.getText().toString())) {
 
 				STT_COUNT++;
 				showQuestion(arrRd.get(STT_COUNT));
@@ -383,8 +380,7 @@ public class GamePicture extends Activity implements OnClickListener {
 			}
 
 		} else if (v == layoutgame3) {
-			if (list.get(arrRd.get(STT_COUNT)).getId() == Integer
-					.parseInt(txt_id_tv3_game.getText().toString())) {
+			if (list.get(arrRd.get(STT_COUNT)).getId() == Integer.parseInt(txt_id_tv3_game.getText().toString())) {
 
 				STT_COUNT++;
 				showQuestion(arrRd.get(STT_COUNT));
@@ -397,8 +393,7 @@ public class GamePicture extends Activity implements OnClickListener {
 			}
 
 		} else if (v == layoutgame4) {
-			if (list.get(arrRd.get(STT_COUNT)).getId() == Integer
-					.parseInt(txt_id_tv4_game.getText().toString())) {
+			if (list.get(arrRd.get(STT_COUNT)).getId() == Integer.parseInt(txt_id_tv4_game.getText().toString())) {
 				STT_COUNT++;
 				showQuestion(arrRd.get(STT_COUNT));
 			} else {
@@ -413,17 +408,4 @@ public class GamePicture extends Activity implements OnClickListener {
 
 	}
 
-	private void showAds() {
-		interstial = new InterstitialAd(this);
-		interstial.setAdUnitId("ca-app-pub-1395380684132176/7617023047");
-		AdRequest adreques1 = new AdRequest.Builder().build();
-		interstial.loadAd(adreques1);
-		interstial.setAdListener(new AdListener() {
-			@Override
-			public void onAdLoaded() {
-				super.onAdLoaded();
-				interstial.show();
-			}
-		});
-	}
 }

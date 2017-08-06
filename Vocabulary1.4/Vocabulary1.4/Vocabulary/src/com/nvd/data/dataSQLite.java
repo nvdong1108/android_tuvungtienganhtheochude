@@ -43,8 +43,7 @@ public class dataSQLite extends SQLiteOpenHelper {
 
 			byte[] buffer = new byte[1024];
 			int length;
-			InputStream myInput = context.getApplicationContext().getAssets()
-					.open("data.sqlite");
+			InputStream myInput = context.getApplicationContext().getAssets().open("data.sqlite");
 
 			while ((length = myInput.read(buffer)) > 0) {
 				myOutput.write(buffer, 0, length);
@@ -63,9 +62,8 @@ public class dataSQLite extends SQLiteOpenHelper {
 	}
 
 	public void doCreateDb() {
-		database = context.getApplicationContext().openOrCreateDatabase(
-				"data.sqlite", context.getApplicationContext().MODE_PRIVATE,
-				null);
+		database = context.getApplicationContext().openOrCreateDatabase("data.sqlite",
+				context.getApplicationContext().MODE_PRIVATE, null);
 
 	}
 
@@ -75,8 +73,7 @@ public class dataSQLite extends SQLiteOpenHelper {
 
 	public void opendatabase() {
 		String urn = path + name;
-		database = SQLiteDatabase.openDatabase(urn, null,
-				SQLiteDatabase.CREATE_IF_NECESSARY);
+		database = SQLiteDatabase.openDatabase(urn, null, SQLiteDatabase.CREATE_IF_NECESSARY);
 	}
 
 	public void QueryData(String sql) {
@@ -89,17 +86,14 @@ public class dataSQLite extends SQLiteOpenHelper {
 		ArrayList<vocabulary> list = new ArrayList<vocabulary>();
 		Cursor c = null;
 
-		String[] arrTB = { "tb_family", "tb_houses", "tb_school", "tb_thucan",
-				"tb_trangphuc", "tb_congviec", "tb_suckhoe", "tb_dongvat",
-				"tb_thucvat", "tb_thoitiet", "tb_sports", "tb_music",
-				"tb_giaothong", "tb_dialy" };
+		String[] arrTB = { "tb_family", "tb_houses", "tb_school", "tb_thucan", "tb_trangphuc", "tb_congviec",
+				"tb_suckhoe", "tb_dongvat", "tb_thucvat", "tb_thoitiet", "tb_sports", "tb_music", "tb_giaothong",
+				"tb_dialy" };
 
 		for (int i = 0; i < arrTB.length; i++) {
-			c = database.query(arrTB[i], null, "yeuthich=1", null, null, null,
-					null);
+			c = database.query(arrTB[i], null, "yeuthich=1", null, null, null, null);
 			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getInt(0), c.getString(1), c
-						.getString(2), c.getString(3), c.getInt(4),
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getInt(4),
 						c.getInt(5), c.getString(7)));
 			}
 		}
@@ -112,26 +106,22 @@ public class dataSQLite extends SQLiteOpenHelper {
 		ArrayList<vocabulary> list = new ArrayList<vocabulary>();
 		Cursor c = null;
 		if (tb.equals("yt")) {
-			String[] arrTB = { "tb_family", "tb_houses", "tb_school",
-					"tb_thucan", "tb_trangphuc", "tb_congviec", "tb_suckhoe",
-					"tb_dongvat", "tb_thucvat", "tb_thoitiet", "tb_sports",
-					"tb_music", "tb_giaothong", "tb_dialy" };
+			String[] arrTB = { "tb_family", "tb_houses", "tb_school", "tb_thucan", "tb_trangphuc", "tb_congviec",
+					"tb_suckhoe", "tb_dongvat", "tb_thucvat", "tb_thoitiet", "tb_sports", "tb_music", "tb_giaothong",
+					"tb_dialy" };
 
 			for (int i = 0; i < arrTB.length; i++) {
-				c = database.query(arrTB[i], null, "yeuthich=1", null, null,
-						null, null);
+				c = database.query(arrTB[i], null, "yeuthich=1", null, null, null, null);
 				while (c.moveToNext()) {
-					list.add(new vocabulary(c.getInt(0), c.getString(1), c
-							.getString(2), c.getString(3), c.getInt(4), c
-							.getInt(5), c.getString(7)));
+					list.add(new vocabulary(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getInt(4),
+							c.getInt(5), c.getString(7)));
 				}
 			}
 		} else {
 
 			c = database.query(tb, null, null, null, null, null, null);
 			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getInt(0), c.getString(1), c
-						.getString(2), c.getString(3), c.getInt(4),
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getInt(4),
 						c.getInt(5), c.getString(7)));
 			}
 		}
@@ -146,18 +136,15 @@ public class dataSQLite extends SQLiteOpenHelper {
 		Cursor c = null;
 
 		if (tb.equals("yt")) {
-			String[] arrTB = { "tb_family", "tb_houses", "tb_school",
-					"tb_thucan", "tb_trangphuc", "tb_congviec", "tb_suckhoe",
-					"tb_dongvat", "tb_thucvat", "tb_thoitiet", "tb_sports",
-					"tb_music", "tb_giaothong", "tb_dialy" };
+			String[] arrTB = { "tb_family", "tb_houses", "tb_school", "tb_thucan", "tb_trangphuc", "tb_congviec",
+					"tb_suckhoe", "tb_dongvat", "tb_thucvat", "tb_thoitiet", "tb_sports", "tb_music", "tb_giaothong",
+					"tb_dialy" };
 
 			for (int i = 0; i < arrTB.length; i++) {
-				c = database.query(arrTB[i], null, "yeuthich=1", null, null,
-						null, null);
+				c = database.query(arrTB[i], null, "yeuthich=1", null, null, null, null);
 				while (c.moveToNext()) {
-					list.add(new vocabulary(c.getInt(0), c.getString(1), c
-							.getString(2), c.getString(3), c.getInt(4), c
-							.getInt(5), c.getString(7)));
+					list.add(new vocabulary(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getInt(4),
+							c.getInt(5), c.getString(7)));
 				}
 			}
 		} else {
@@ -165,11 +152,9 @@ public class dataSQLite extends SQLiteOpenHelper {
 
 				c = database.query(tb, null, null, null, null, null, null);
 			else
-				c = database.query(tb, null, "nhom=" + nhom, null, null, null,
-						null);
+				c = database.query(tb, null, "nhom=" + nhom, null, null, null, null);
 			while (c.moveToNext()) {
-				list.add(new vocabulary(c.getInt(0), c.getString(1), c
-						.getString(2), c.getString(3), c.getInt(4),
+				list.add(new vocabulary(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getInt(4),
 						c.getInt(5), c.getString(7)));
 			}
 		}
@@ -182,32 +167,28 @@ public class dataSQLite extends SQLiteOpenHelper {
 	//
 
 	public void UpdateVocabulary(String W_ENG, int YEUTHICH) {
-		String sql = "UPDATE tuvung SET YEUTHICH = " + YEUTHICH
-				+ " WHERE W_ENG = '" + W_ENG + "'";
+		String sql = "UPDATE tuvung SET YEUTHICH = " + YEUTHICH + " WHERE W_ENG = '" + W_ENG + "'";
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL(sql);
 
 	}
 
 	public void UPLOAD_YEUTHICH(String tb, int id, int yeuthich) {
-		String sql = "UPDATE " + tb + " SET yeuthich = " + yeuthich
-				+ " WHERE id = " + id + "";
+		String sql = "UPDATE " + tb + " SET yeuthich = " + yeuthich + " WHERE id = " + id + "";
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL(sql);
 	}
 
 	//
 	public void UPLOAD_V_YEUTHICH(String eng, int id, int yeuthich) {
-		String sql = "UPDATE family SET yeuthich = " + yeuthich
-				+ " WHERE id = " + id + " and eng = '" + eng + "'";
+		String sql = "UPDATE family SET yeuthich = " + yeuthich + " WHERE id = " + id + " and eng = '" + eng + "'";
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL(sql);
 	}
 
 	//
 	public void UPLOAD_IMG(String tb, int id, int img) {
-		String sql = "UPDATE " + tb + " SET hinhanh = " + img + " WHERE id = "
-				+ id + "";
+		String sql = "UPDATE " + tb + " SET hinhanh = " + img + " WHERE id = " + id + "";
 		SQLiteDatabase db = getWritableDatabase();
 		db.execSQL(sql);
 	}
@@ -1510,8 +1491,7 @@ public class dataSQLite extends SQLiteOpenHelper {
 		UPLOAD_IMG("tb_houses", 44, R.drawable.staircase);
 		UPLOAD_IMG("tb_houses", 45, R.drawable.step);
 		UPLOAD_IMG("tb_houses", 46, R.drawable.desk);
-		UPLOAD_IMG("tb_houses", 47,
-				R.drawable.fitted_carpet_wall_to_wall_carpet);
+		UPLOAD_IMG("tb_houses", 47, R.drawable.fitted_carpet_wall_to_wall_carpet);
 		UPLOAD_IMG("tb_houses", 48, R.drawable.recliner);
 		UPLOAD_IMG("tb_houses", 49, R.drawable.remote_control);
 		UPLOAD_IMG("tb_houses", 50, R.drawable.television);
@@ -1723,8 +1703,7 @@ public class dataSQLite extends SQLiteOpenHelper {
 		UPLOAD_IMG("tb_houses", 256, R.drawable.light_bulb);
 		UPLOAD_IMG("tb_houses", 257, R.drawable.paper_towel);
 		UPLOAD_IMG("tb_houses", 258, R.drawable.dryer);
-		UPLOAD_IMG("tb_houses", 259,
-				R.drawable.washing_powder_laundry_detergent);
+		UPLOAD_IMG("tb_houses", 259, R.drawable.washing_powder_laundry_detergent);
 		UPLOAD_IMG("tb_houses", 260, R.drawable.bleach);
 		UPLOAD_IMG("tb_houses", 261, R.drawable.water_softener);
 		UPLOAD_IMG("tb_houses", 262, R.drawable.laundry);
@@ -2015,7 +1994,6 @@ public class dataSQLite extends SQLiteOpenHelper {
 		UPLOAD_IMG("tb_sports", 74, R.drawable.dive);
 		UPLOAD_IMG("tb_sports", 75, R.drawable.drive);
 		UPLOAD_IMG("tb_sports", 76, R.drawable.shoot);
-
 	}
 
 	//
